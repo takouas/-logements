@@ -1,0 +1,63 @@
+{
+  "annonces": [
+    {
+      "id": 1,
+      "prix": "200",
+      "nombreDePersoone": "5",
+      "gouvernorat": "beja",
+      "typeDeBien": "maison",
+      "periode": "jour",
+      "image": "",
+      "description": "kkk"
+    },
+    {
+      "id": 1,
+      "prix": "300",
+      "nombreDePersoone": "5",
+      "gouvernorat": "tunis",
+      "typeDeBien": "maison",
+      "periode": "jour",
+      "image": "",
+      "description": "kkk"
+    },
+    {
+      "id": 1,
+      "prix": "400",
+      "nombreDePersoone": "5",
+      "gouvernorat": "mahdia",
+      "typeDeBien": "maison",
+      "periode": "jour",
+      "image": "",
+      "description": "kkk"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nom": "sa",
+      "prenom": "tako",
+      "role": "admin",
+      "motDePasse": "000",
+      "telephone": "",
+      "email": "t@gmail.com"
+    },
+    {
+      "id": 2,
+      "nom": "c",
+      "prenom": "c",
+      "role": "client",
+      "motDePasse": "00",
+      "telephone": "",
+      "email": "c@gmail.com"
+    },
+    {
+      "id": 3,
+      "nom": "p",
+      "prenom": "p",
+      "role": "propritaire",
+      "motDePasse": "0",
+      "telephone": "",
+      "email": "p@gmail.com"
+    }
+  ]
+}

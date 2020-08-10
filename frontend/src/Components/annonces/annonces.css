@@ -1,0 +1,66 @@
+/*********************** introduction *************************/
+.container-introduction{
+background-image: url(../../image/imageback.png);
+
+/* background-color: #e5e7e8;  */
+
+height: 200px;
+background-repeat: no-repeat;
+background-position: center;
+ 
+    margin: 20px;
+
+    border-radius: 5px;
+ 
+    /* font-family: heroTitle;
+
+    line-height: 37px;
+    color: rgb(59, 57, 63); */
+}
+.container-introduction-pargraphe{
+    font-size: 26px;
+    color: black;
+
+    text-align: center;
+    font-weight:bold ;
+
+}
+/***************** List Annonces *******************************/
+.container-card-list{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+/******************** Home Annonces ****************************/
+.container-home-annonces-barre-recherche{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+
+/***************** ListAnnoncesProp*******************************/
+.container-card-list-button-edite-delete{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.page-list-annonces-propritaire-button-edite{
+    color:#21b4ff;
+}
+.page-list-annonces-propritaire-button-delete{
+    color: red;
+
+}
+/************************* ajout annonce*********************/
+.container-modal-section1{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.container-modal-section2{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}

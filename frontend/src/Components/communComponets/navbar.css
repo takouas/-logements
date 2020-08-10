@@ -1,0 +1,16 @@
+.navbar-logo-bity{
+   width:120px ;
+   margin-top: 10px;
+}
+.container-nav{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-between;
+   margin-left: 55px;
+   margin-right: 55px;
+}
+.container-nav-button-users{
+margin-top: 40px;
+}
+
+ 
