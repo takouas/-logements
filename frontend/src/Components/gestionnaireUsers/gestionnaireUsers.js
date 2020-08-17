@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import './gestionnaireUsers.css'
 import { connect } from 'react-redux';
-import FiltreNom from './filtreNom'
-import FiltreRole from './filtreRole'
-import { Table } from 'antd';
-import { getUsersFromApi } from "../../api/usersApi"
 
-import { DeleteOutlined ,CaretDownOutlined} from '@ant-design/icons';
+import { Table, Button } from 'antd';
+import { getUsersFromApi, deleteUsersFromApi } from "../../api/usersApi"
+
+import { DeleteOutlined, CaretDownOutlined } from '@ant-design/icons';
+import Details from './detailsUsers';
+import FiltreForAdmin from './filtre'
+
+function handlechangefilter(e) {
+    if ({ [e.target.name]: e.target.value }) {
 
 
+    }
+}
 class GestionnaireUsers extends Component {
     componentDidMount() {
         this.props.getUsersFromApi()
@@ -20,14 +26,7 @@ class GestionnaireUsers extends Component {
         return (
             <div>
 
-                <div className="container-page-admin-barre-recherche">
-
-
-                    <FiltreNom />
-                    <FiltreRole />
-
-
-                </div>
+                <FiltreForAdmin />
                 <table>
                     <thead>
                         <tr>
@@ -41,8 +40,8 @@ class GestionnaireUsers extends Component {
                         {this.props.stateUsers.map((el) => <tr>
                             <td data-column="Nom">{el.nom}</td>
                             <td data-column="Role">{el.role}</td>
-                            <td data-column="Détails"><CaretDownOutlined  className='page-admin-button-détails'/></td>
-                            <td data-column="Suppression"><DeleteOutlined className='page-admin-button-delete'/></td>
+                            <td data-column="Détails"><Details email={el.email} telephone={el.telephone} motDePasse={el.motDePasse} prenom={el.prenom} /></td>
+                            <td data-column="Suppression"> <Button onClick={() => this.props.deleteUsersFromApi(el)} ><DeleteOutlined className='page-admin-button-delete' /></Button></td>
                         </tr>)}
 
 
@@ -50,7 +49,7 @@ class GestionnaireUsers extends Component {
                 </table>
 
 
-               
+
             </div>
         )
     }
@@ -62,9 +61,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getUsersFromApi: () => dispatch(getUsersFromApi())
-
-
+    getUsersFromApi: () => dispatch(getUsersFromApi()),
+    deleteUsersFromApi: (el) => dispatch(deleteUsersFromApi(el))
 
 });
 

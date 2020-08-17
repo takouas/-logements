@@ -81,3 +81,15 @@ only screen and (max-width: 760px),
     color: red;
 
 }
+/***** Details*********/
+.details:hover{
+color: #9f0207;
+}
+.details{
+	color: #000;
+	
+	font-size: 20px;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: bold;
+	
+	}

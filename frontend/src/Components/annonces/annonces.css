@@ -1,10 +1,10 @@
 /*********************** introduction *************************/
 .container-introduction{
-background-image: url(../../image/imageback.png);
+background-image: url(https://static.paruvendu.fr/communfo/img/depose/landing_v4/siteannonces11.jpg);
 
 /* background-color: #e5e7e8;  */
 
-height: 200px;
+height: 250px;
 background-repeat: no-repeat;
 background-position: center;
  
@@ -63,4 +63,8 @@ background-position: center;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+.button-ajout{
+    float: right;
+    margin-top: 25px;
 }

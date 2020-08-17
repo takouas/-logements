@@ -1,38 +1,43 @@
 import React, { Component } from 'react'
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { connect } from 'react-redux';
-import { getAnnonceFromApi } from "../../api/annoncesApi"
+import { getAnnonceFromApi, deleteAnnonceFromApi } from "../../api/annoncesApi"
 import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
+import AjoutAnnonces from './ajoutAnnonces';
+import ModifierAnnonces from './modificationAnnonces';
 class ListAnnoncesProp extends Component {
     componentDidMount() {
         this.props.getAnnonceFromApi()
     }
     render() {
-      
+
         return (
-            <div className='container-card-list'>
-                {
-                    this.props.stateAnnonces.map(el=><Card
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="maison" src={el.image} />}
-                    >
+            <div>
+                <AjoutAnnonces />
+                <div className='container-card-list'>
+                    {
+                        this.props.stateAnnonces.map(el => <Card
+                            hoverable
+                            style={{ width: 340 }}
+                            cover={<img alt="maison" src={el.image} />}
+                        >
 
-                    <div> <p>{el.typeDeBien}</p> <p>{el.prix}</p> <p>{el.gouvernorat}</p> <p>{el.periode}</p>
-                        </div>
-                        <div className='container-card-list-button-edite-delete'>
-                        <DeleteOutlined className='page-list-annonces-propritaire-button-delete'/>
-                        <FormOutlined className='page-list-annonces-propritaire-button-edite'/>
-                            
-                            </div>  
-                        
-                    </Card>)
+                            <div> <p>{el.typeDeBien}</p> <p>{el.prix} DT par {el.periode}</p><p>{el.gouvernorat}</p>
+                            </div>
+                            <div className='container-card-list-button-edite-delete'>
+                                <Button onClick={()=>this.props.deleteAnnonceFromApi(el)}>
+                                    <DeleteOutlined className='page-list-annonces-propritaire-button-delete' />
+                                </Button>
+                                <ModifierAnnonces stateAnnonces={el} />
+                            </div>
 
-                }
+                        </Card>)
+
+                    }
+
+                </div>
 
             </div>
-
-
 
 
         )
@@ -47,8 +52,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 
-    getAnnonceFromApi: () => dispatch(getAnnonceFromApi())
+    getAnnonceFromApi: () => dispatch(getAnnonceFromApi()),
 
+    deleteAnnonceFromApi: (el) => dispatch(deleteAnnonceFromApi(el))
 });
 
 

@@ -7,3 +7,15 @@
     flex-flow: row wrap; */
 }
 
+body{
+
+}
+p,h2{
+    font-size: 20px;
+    font-family: 'Cormorant Infant', serif;
+    font-weight: bold;
+}
+::placeholder {
+    color: grey !important;
+  }
+ 

@@ -3,32 +3,48 @@
     {
       "id": 1,
       "prix": "200",
-      "nombreDePersoone": "5",
-      "gouvernorat": "beja",
+      "nombreDePersonne": "8",
+      "gouvernorat": "Beja",
       "typeDeBien": "maison",
       "periode": "jour",
-      "image": "",
-      "description": "kkk"
+      "image": "https://freedesignfile.com/upload/2017/07/Warm-home-HD-picture.jpg",
+      "description": "Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.",
+      "emailAnnonce": "kkk",
+      "telephoneAnnonce": "telephoneAnnonce"
     },
     {
-      "id": 1,
-      "prix": "300",
-      "nombreDePersoone": "5",
+      "id": 2,
+      "prix": "5000",
+      "nombreDePersonne": "5",
       "gouvernorat": "tunis",
       "typeDeBien": "maison",
       "periode": "jour",
-      "image": "",
-      "description": "kkk"
+      "image": "https://freedesignfile.com/upload/2017/07/Warm-home-HD-picture.jpg",
+      "description": "Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.",
+      "emailAnnonce": "emailAnnonce",
+      "telephoneAnnonce": "telephoneAnnonce"
     },
     {
-      "id": 1,
+      "id": 3,
       "prix": "400",
-      "nombreDePersoone": "5",
+      "nombreDePersonne": "6",
       "gouvernorat": "mahdia",
       "typeDeBien": "maison",
       "periode": "jour",
-      "image": "",
-      "description": "kkk"
+      "image": "https://freedesignfile.com/upload/2017/07/Warm-home-HD-picture.jpg",
+      "description": "Nous mettons en location une coquette maison S+4 bâtie sur deux niveaux sur un terrain de 280 m² très bien située dans un quartier calme et sécurisé à LA Marsa.",
+      "emailAnnonce": "emailAnnonce",
+      "telephoneAnnonce": "5555"
+    },
+    {
+      "prix": "500",
+      "gouvernorat": "Ben Arous",
+      "typeDeBien": "foyer privé",
+      "periode": "par jour",
+      "description": "eds",
+      "telephoneAnnonce": "5555dd",
+      "emailAnnonce": "zddd@gmail.com",
+      "id": 4
     }
   ],
   "users": [
@@ -38,7 +54,7 @@
       "prenom": "tako",
       "role": "admin",
       "motDePasse": "000",
-      "telephone": "",
+      "telephone": "55",
       "email": "t@gmail.com"
     },
     {

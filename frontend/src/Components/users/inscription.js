@@ -3,9 +3,9 @@
 import React, { Component } from 'react'
 import { Modal, Button, Form, Input, Checkbox, Select, Tooltip } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-
+import { postUsersToApi } from "../../api/usersApi"
 import './users.css';
-
+import { connect } from 'react-redux';
 
 
 const onFinish = values => {
@@ -15,14 +15,16 @@ const onFinish = values => {
 const { Option } = Select;
 
 
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
 
 
-export default class Inscription extends Component {
+class Inscription extends Component {
     state = {
-       
+        nom: "",
+        prenom: "",
+        role: "",
+        motDePasse: "",
+        telephone: "",
+        email: "",
         visible: false,
     };
 
@@ -32,7 +34,7 @@ export default class Inscription extends Component {
         });
     };
 
- 
+
 
     handleCancel = () => {
         this.setState({ visible: false });
@@ -42,24 +44,31 @@ export default class Inscription extends Component {
         const { visible } = this.state;
         return (
             <>
-                <Button className="container-nav-button-users-regestir" onClick={this.showModal}>
+                <Button className="container-nav-button-users-regestir" onClick={this.showModal} style={{
+                    fontSize: 15,
+                    fontFamily: 'Cormorant Infant serif',
+                    fontWeight: 'bold',
+                }}>
                     Inscription
         </Button>
                 <Modal
                     visible={visible}
                     title="Inscription"
-             
+
                     onCancel={this.handleCancel}
-                    footer={[
-
-
-                    ]}
+                    footer={false} style={{
+                        fontSize: 15,
+                        fontFamily: 'Cormorant Infant serif',
+                        fontWeight: 'bold',
+                    }}
                 >
                     <div>
 
                         <div className="container-inscription-nom-prenom-tél-role">
-                            <Input style={{ width: 200 }} placeholder="Nom"  />
-                            <Input style={{ width: 200 }} placeholder="Prénom" />
+                            <span> <p>Nom :</p>
+                                <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} /></span>
+                            <span> <p>Prénom :</p>
+                                <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} /></span>
                         </div>
 
                         <Form
@@ -68,12 +77,13 @@ export default class Inscription extends Component {
                             initialValues={{
                                 remember: true,
                             }}
+
                             onFinish={onFinish}
                         >
 
 
-                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}>
-                                <Input placeholder="E-mail" />
+                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}    > E-mail
+                                <Input placeholder="E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} />
                             </Form.Item>
 
 
@@ -85,40 +95,55 @@ export default class Inscription extends Component {
                                         message: '!',
                                     },
                                 ]}
-                            >
+                            > mot de passe
                                 <Input.Password
-                                  
+
                                     placeholder="mot de passe" iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                />
+                                    onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
                             </Form.Item>
 
 
 
                             <div className="container-inscription-nom-prenom-tél-role">
+                                <span>
+                                    <Select style={{ width: 200 }}  placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} >
 
-                                <Select defaultValue="Client" style={{ width: 200 }} onChange={handleChange}>
+                                        <Option value="client">Client</Option>
+                                        <Option value="propriétaire">Propriétaire</Option>
 
-                                    <Option value="Client">Client</Option>
-                                    <Option value="propriétaire">propriétaire</Option>
+                                    </Select>
+                                </span>
+                                <span> <p>votre numéro de téléphone</p>
 
-                                </Select>
+                                    <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
 
-
-                                <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" />
-
+                                </span>
 
 
                             </div>
 
 
-                     
-                                <Button className='button-connecxion' htmlType="submit" >
-                                    Connecxion
+                            <Form.Item>
+
+                                <Button className='button-connecxion-inscription' htmlType="submit" style={{
+                                    fontSize: 15,
+                                    fontFamily: 'Cormorant Infant serif',
+                                    fontWeight: 'bold',
+                                }} onClick={
+                                    () =>
+                                        this.props.postUsersToApi({
+                                            "nom": this.state.nom,
+                                            "prenom": this.state.prenom,
+                                            "role": this.state.role,
+                                            "motDePasse": this.state.motDePasse,
+                                            "telephone": this.state.telephone,
+                                            "email": this.state.email
+                                        })
+                                }>
+                                    Inscription
         </Button>
-
-                       
+                            </Form.Item>
                         </Form>
-
 
 
 
@@ -129,3 +154,12 @@ export default class Inscription extends Component {
     }
 }
 
+const mapStateToProps = () => {
+
+}
+const mapDispatchToProps = (dispatch) => ({
+    postUsersToApi: (el) => dispatch(postUsersToApi(el))
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Inscription)

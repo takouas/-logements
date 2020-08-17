@@ -1,22 +1,32 @@
 import React, { Component } from 'react'
 import "./annonces.css"
 import { Modal, Button, Select, Input, Form, Upload } from 'antd';
-
+import { getAnnonceFromApi, postAnnonceToApi } from "../../api/annoncesApi"
+import { connect } from 'react-redux';
+import axios from "axios"
+import gouvernorat from '../../ressource/gouvernorat'
 const { TextArea } = Input;
 
-const onChange = e => {
-    console.log(e);
-};
 
 
 
 
 
 const { Option } = Select;
-export default class AjoutAnnonces extends Component {
+class AjoutAnnonces extends Component {
     state = {
         visible: false,
-        files: ""
+        // files: "",
+
+        prix: "",
+        nombreDePersonne: "",
+        gouvernorat: "",
+        typeDeBien: "",
+        periode: "",
+        image: [],
+        description: "",
+        emailAnnonce: "",
+        telephoneAnnonce: ""
     };
 
     showModal = () => {
@@ -25,8 +35,24 @@ export default class AjoutAnnonces extends Component {
         });
     };
 
-    handleOnUploadFile = () => {
+    //upload picture
+    handleOnUploadFile(e) {
+        this.setState({ image: e.target.files[0] });
+        // setState({ image: state.file });
+        // console.log('ddddd', this.state.image)
+    }
 
+    handleOnSubmit() {
+       
+        const formData = new FormData();
+        formData.append("file", this.state.image);
+        // console.log(this.state.image);
+        // console.log(formData)
+
+        axios
+            .post("", formData)
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
     };
 
 
@@ -40,25 +66,32 @@ export default class AjoutAnnonces extends Component {
             <>
 
 
-                <Button className="" onClick={this.showModal}>
-                    ajout
+                <Button className="" onClick={this.showModal} style={{
+                    fontSize: 15,
+                    fontFamily: 'Cormorant Infant serif',
+                    fontWeight: 'bold',
+                }}>
+                    Déposer une annonce
             </Button>
                 <Modal
                     visible={visible}
-                    title="ajout"
+                    title="Déposez  votre annonce pour  louer votre appartement, maison ..."
 
                     onCancel={this.handleCancel}
-                    footer={[
-
-
-                    ]}
+                    footer={false}
+                    style={{
+                        fontSize: 15,
+                        fontFamily: 'Cormorant Infant serif',
+                        fontWeight: 'bold',
+                    }}
                 >
                     <div>
 
                         <div className='container-modal-section1'>
                             <Form.Item
                                 name="select" >
-                                <Select placeholder="Etat de bien " style={{ width: 150 }}>
+                                <p>Etat de bien : </p>
+                                <Select placeholder="Etat de bien " style={{ width: 150 }} onChange={(value) => { this.setState({ typeDeBien: value }) }}>
                                     <Option value="maison">maison</Option>
                                     <Option value="chambre">chambre</Option>
                                     <Option value="foyer privé">foyer privé</Option>
@@ -67,10 +100,11 @@ export default class AjoutAnnonces extends Component {
                             <Form.Item
                                 name="select"
 
-                                hasFeedback
+
 
                             >
-                                <Select placeholder="Période" style={{ width: 150 }}>
+                                <p>Période :</p>
+                                <Select placeholder="Période" style={{ width: 150 }} onChange={(value) => { this.setState({ periode: value }) }}>
                                     <Option value="par jour">par jour</Option>
                                     <Option value="par mois">par mois</Option>
                                 </Select>
@@ -81,56 +115,101 @@ export default class AjoutAnnonces extends Component {
 
 
                             >
-                                <Select placeholder="Gouvernorats" style={{ width: 150 }}>
-                                    <Option value="Ariana">Ariana</Option>
-                                    <Option value="Béja">Béja</Option>
-                                    <Option value="Ben Arous">Ben Arous</Option>
-                                    <Option value="Bizerte">Bizerte</Option>
-                                    <Option value="Gabès">Gabès</Option>
-                                    <Option value="Gafsa">Gafsa</Option>
-                                    <Option value="Jendouba">Jendouba</Option>
-                                    <Option value="Kairouan">Kairouan</Option>
-                                    <Option value="Kasserine">Kasserine</Option>
-                                    <Option value="Kef">Kef</Option>
-                                    <Option value="Mahdia">Mahdia</Option>
-                                    <Option value="Manouba">Manouba</Option>
-                                    <Option value="Médenine">Médenine</Option>
-                                    <Option value="Monastir">Monastir</Option>
-                                    <Option value="Nabeul">Nabeul</Option>
-                                    <Option value="Sfax">Sfax</Option>
-                                    <Option value="Sidi Bouzid">Sidi Bouzid</Option>
-                                    <Option value="Siliana">Siliana</Option>
-                                    <Option value="Sousse">Sousse</Option>
-                                    <Option value="Tataouine">Tataouine</Option>
-                                    <Option value="Tozeur">Tozeur</Option>
-                                    <Option value="Tunis">Tunis</Option>
-                                    <Option value="Zaghouan">Zaghouan</Option>
+                                <p> Gouvernorats :</p>
+                                <Select placeholder="Gouvernorats" style={{ width: 150 }}
+
+                                    onChange={(value) => { this.setState({ gouvernorat: value }) }}
+                                >
+                                    {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
+
                                 </Select>
                             </Form.Item>
                         </div>
 
                         <div className='container-modal-section2'>
-                            <Input placeholder="prix" style={{ width: 200 }}/>
+                            <span>
+                                <p>prix :</p>
+                                <Input placeholder="prix" style={{ width: 200 }} onChange={(e) => { this.setState({ prix: e.target.value }) }} />
+                            </span>
 
+                            <span>
+                                <p>nombre de personne :</p>
+                                <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersonne: e.target.value }) }} />
+                            </span>
+                        </div>
+                        <br />
+                        <div className='container-modal-section2'>
+                            <span> <p>téléphone :</p>
 
+                                <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephoneAnnonce: e.target.value }) }} />
 
-                            <Input placeholder="nombre de personne" style={{ width: 200 }}/>
+                            </span>
+
+                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}    > <p>E-mail : </p>
+                                <Input placeholder="E-mail" onChange={(e) => { this.setState({ emailAnnonce: e.target.value }) }} />
+                            </Form.Item>
+
                         </div>
 
-                        <Input placeholder="adress" />
 
-                        <TextArea placeholder="description" allowClear onChange={onChange} />
+                        <div >
+
+                            <span>File</span>
+                            <Input name="file" type="file" onChange={(e) => this.handleOnUploadFile(e)} />
+
+                        </div>
+                        <Button type="submit" class="btn" onClick={() => this.handleOnSubmit()}>Submit</Button>
 
 
 
 
+                        <p>Adress : </p>
+                        <Input placeholder="adress" onChange={(e) => { this.setState({ adress: e.target.onChange }) }} />
+
+
+
+
+
+                        <p>Description :</p>
+                        <TextArea placeholder="description" allowClear onChange={(e) => { this.setState({ description: e.target.value }) }} />
+
+                        <Form.Item>
+                            <Button className='button-ajout' htmlType="submit" style={{
+                                fontSize: 15,
+                                fontFamily: 'Cormorant Infant serif',
+                                fontWeight: 'bold',
+                            }} onClick={
+                                () =>
+                                    this.props.postAnnonceToApi({
+                                        "prix": this.state.prix,
+                                        "nombreDePersonne": this.state.nombreDePersonne,
+                                        "gouvernorat": this.state.gouvernorat,
+                                        "typeDeBien": this.state.typeDeBien,
+                                        "periode": this.state.periode,
+                                        // "image": this.state.,
+                                        "description": this.state.description,
+                                        "emailAnnonce": this.state.emailAnnonce,
+                                        "telephoneAnnonce": this.state.telephoneAnnonce
+                                    })
+                            }>
+                                ajout
+        </Button>
+                        </Form.Item>
                     </div>
+
                 </Modal>
             </>
         );
     }
 }
+const mapStateToProps = () => {
 
+}
+const mapDispatchToProps = (dispatch) => ({
+    postAnnonceToApi: (el) => dispatch(postAnnonceToApi(el))
 
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AjoutAnnonces)
 
 

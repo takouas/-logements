@@ -5,9 +5,10 @@ import Navbar from './Components/communComponets/navbar';
 import HomeAnnonces from './Components/annonces/homeAnnonces';
 import GestionnaireUsers from './Components/gestionnaireUsers/gestionnaireUsers';
 import Home from './Components/home';
-import AjoutAnnonces from './Components/annonces/ajoutAnnonces';
+
 import { List } from 'antd/lib/form/Form';
 import ListAnnonceProp from './Components/annonces/listAnnonceProp';
+import modifierAnnonces from './Components/annonces/modificationAnnonces';
 
 
 function App() {
@@ -16,10 +17,10 @@ function App() {
 
       <Navbar />
       <HomeAnnonces />
-      <Home />
+
       <GestionnaireUsers />
-      <AjoutAnnonces />
-      <ListAnnonceProp/>
+
+      <ListAnnonceProp/> 
     </div>
 
   );

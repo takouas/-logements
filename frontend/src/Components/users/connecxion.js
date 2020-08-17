@@ -34,17 +34,23 @@ export default class Connection extends Component {
     const { visible, loading } = this.state;
     return (
       <>
-        <Button className="container-nav-button-users-connection" onClick={this.showModal}>
+        <Button className="container-nav-button-users-connection" onClick={this.showModal} style={{
+          fontSize: 15,
+          fontFamily: 'Cormorant Infant serif',
+          fontWeight: 'bold',
+        }}>
           Connecxion
         </Button>
         <Modal
           visible={visible}
           title="Connecxion"
           onCancel={this.handleCancel}
-          footer={[
-
-
-          ]}
+          footer={false}
+          style={{
+            fontSize: 15,
+            fontFamily: 'Cormorant Infant serif',
+            fontWeight: 'bold',
+          }}
         >
           <div>
 
@@ -92,13 +98,17 @@ export default class Connection extends Component {
 
               </Form.Item>
 
+              <Form.Item>
 
-
-              <Button className='button-connecxion' htmlType="submit" >
-                Connecxion
+                <Button className='button-connecxion-inscription' htmlType="submit" style={{
+                  fontSize: 15,
+                  fontFamily: 'Cormorant Infant serif',
+                  fontWeight: 'bold',
+                }} >
+                  Connecxion
         </Button>
 
-
+              </Form.Item>
             </Form>
 
 
