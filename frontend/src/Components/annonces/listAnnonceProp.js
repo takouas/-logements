@@ -19,7 +19,7 @@ class ListAnnoncesProp extends Component {
                         this.props.stateAnnonces.map(el => <Card
                             hoverable
                             style={{ width: 340 }}
-                            cover={<img alt="maison" src={el.image} />}
+                            cover={<img alt="maison"  src={"http://localhost:5000/" + el.image} />}
                         >
 
                             <div> <p>{el.typeDeBien}</p> <p>{el.prix} DT par {el.periode}</p><p>{el.gouvernorat}</p>

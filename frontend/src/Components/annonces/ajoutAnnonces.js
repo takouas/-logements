@@ -16,7 +16,7 @@ const { Option } = Select;
 class AjoutAnnonces extends Component {
     state = {
         visible: false,
-        // files: "",
+
 
         prix: "",
         nombreDePersonne: "",
@@ -37,20 +37,19 @@ class AjoutAnnonces extends Component {
 
     //upload picture
     handleOnUploadFile(e) {
-        this.setState({ image: e.target.files[0] });
-        // setState({ image: state.file });
-        // console.log('ddddd', this.state.image)
+        this.setState({ image: e.target.files[0].name });
+
     }
 
     handleOnSubmit() {
-       
+
         const formData = new FormData();
         formData.append("file", this.state.image);
         // console.log(this.state.image);
         // console.log(formData)
 
         axios
-            .post("", formData)
+            .post("http://localhost:5000/image", formData)
             .then(res => console.log(res))
             .catch(err => console.error(err));
     };
@@ -186,7 +185,7 @@ class AjoutAnnonces extends Component {
                                         "gouvernorat": this.state.gouvernorat,
                                         "typeDeBien": this.state.typeDeBien,
                                         "periode": this.state.periode,
-                                        // "image": this.state.,
+                                        "image": this.state.image,
                                         "description": this.state.description,
                                         "emailAnnonce": this.state.emailAnnonce,
                                         "telephoneAnnonce": this.state.telephoneAnnonce

@@ -13,7 +13,7 @@ export function postAnnonceToApi(el) {
         axios.post("http://localhost:5000/annonces", {
             id: el._id,
             prix: el.prix,
-            nombreDePersoone: el.nombreDePersoone,
+            nombreDePersonne: el.nombreDePersonne,
             gouvernorat: el.gouvernorat,
             typeDeBien: el.typeDeBien,
             periode: el.periode,

@@ -5,6 +5,7 @@ import { patchAnnonceToApi, getAnnonceFromApi } from "../../api/annoncesApi"
 import { FormOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import gouvernorat from '../../ressource/gouvernorat'
+import axios from "axios"
 const { TextArea } = Input;
 
 
@@ -35,9 +36,7 @@ class ModifierAnnonces extends Component {
         });
     };
 
-    // handleOnUploadFile = () => {
 
-    // };
 
 
     handleCancel = () => {
@@ -113,7 +112,7 @@ class ModifierAnnonces extends Component {
 
                             <span>
                                 <p>nombre de personne :</p>
-                                <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersoone: e.target.value }) }} defaultValue={this.props.stateAnnonces.nombreDePersoone} />
+                                <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersonne: e.target.value }) }} defaultValue={this.props.stateAnnonces.nombreDePersonne} />
                             </span>
                         </div>
 
@@ -132,6 +131,9 @@ class ModifierAnnonces extends Component {
                             </Form.Item>
 
                         </div>
+
+
+
 
                         <p>Adress : </p>
                         <Input placeholder="adress" onChange={(e) => { this.setState({ adress: e.target.onChange }) }} />

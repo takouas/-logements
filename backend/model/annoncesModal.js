@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const annoncesSchema = mongoose.Schema(
     {
         prix: { type: String },
-        nombreDePersoone: { type: String },
+        nombreDePersonne: { type: String },
         gouvernorat: { type: String },
         typeDeBien: { type: String },
         periode: { type: String },
