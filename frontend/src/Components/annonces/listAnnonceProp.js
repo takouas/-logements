@@ -2,42 +2,55 @@ import React, { Component } from 'react'
 import { Card, Button } from 'antd';
 import { connect } from 'react-redux';
 import { getAnnonceFromApi, deleteAnnonceFromApi } from "../../api/annoncesApi"
-import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import AjoutAnnonces from './ajoutAnnonces';
+
 import ModifierAnnonces from './modificationAnnonces';
+import jwt from 'jsonwebtoken';
+
+
+var token = localStorage.getItem('token')
+var decoded = jwt.decode(token,);
+console.log(decoded)
+
 class ListAnnoncesProp extends Component {
     componentDidMount() {
         this.props.getAnnonceFromApi()
     }
     render() {
-
+        const publicite = this.props.stateAnnonces.filter(el => decoded && el.emailUsers === decoded.user.email)
         return (
             <div>
                 <AjoutAnnonces />
                 <div className='container-card-list'>
+
                     {
-                        this.props.stateAnnonces.map(el => <Card
+                        publicite.map(el => <Card
                             hoverable
-                            style={{ width: 340 }}
-                            cover={<img alt="maison"  src={"http://localhost:5000/" + el.image} />}
+                            style={{ width: 340, marginBottom: 35, backgroundColor: 'whitesmoke' }}
+                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 250 }} />}
+
                         >
+                          
 
-                            <div> <p>{el.typeDeBien}</p> <p>{el.prix} DT par {el.periode}</p><p>{el.gouvernorat}</p>
-                            </div>
-                            <div className='container-card-list-button-edite-delete'>
-                                <Button onClick={()=>this.props.deleteAnnonceFromApi(el)}>
-                                    <DeleteOutlined className='page-list-annonces-propritaire-button-delete' />
-                                </Button>
-                                <ModifierAnnonces stateAnnonces={el} />
-                            </div>
+                            <div >
+                                <div className='container-card-list-button-edite-delete'>
+                                    <Button style={{ backgroundColor: 'transparent' }} onClick={() => this.props.deleteAnnonceFromApi(el)}>
+                                        <DeleteOutlined className='page-list-annonces-propritaire-button-delete' />
 
+                                    </Button>
+
+                                    <ModifierAnnonces stateAnnonces={el} />
+                                </div>
+
+                            </div>
                         </Card>)
 
                     }
 
                 </div>
 
-            </div>
+            </div >
 
 
         )

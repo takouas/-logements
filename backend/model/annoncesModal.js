@@ -10,7 +10,8 @@ const annoncesSchema = mongoose.Schema(
         image: { type: String },
         description: { type: String },
         emailAnnonce: { type: String },
-        telephoneAnnonce: { type: String }
+        telephoneAnnonce: { type: String },
+        emailUsers: { type: String }
     }
 )
 

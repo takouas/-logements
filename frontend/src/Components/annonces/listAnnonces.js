@@ -5,9 +5,7 @@ import { getAnnonceFromApi } from "../../api/annoncesApi"
 import VoirPlus from './voirPlus';
 
 class ListAnnonces extends Component {
-    // componentDidMount() {
-    //     this.props.getAnnonceFromApi()
-    // }
+ 
     render() {
 
         return (
@@ -38,14 +36,13 @@ class ListAnnonces extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    // stateAnnonces: state.stateAnnonces
+ 
 
 
 });
 
 const mapDispatchToProps = (dispatch) => ({
 
-    // getAnnonceFromApi: () => dispatch(getAnnonceFromApi())
 
 });
 

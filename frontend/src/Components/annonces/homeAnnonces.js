@@ -6,7 +6,7 @@ import ListAnnonces from './listAnnonces';
 
 
 import gouvernorat from '../../ressource/gouvernorat'
-
+import TypeDeBien from '../../ressource/typeDeBien'
 import { Modal, Button, Form, Input, Checkbox, Select, Tooltip } from 'antd';
 const { Search } = Input;
 
@@ -16,7 +16,7 @@ class HomeAnnonces extends Component {
 
 
     state = {
-       
+
     }
     componentDidMount() {
         this.props.getAnnonceFromApi()
@@ -35,18 +35,18 @@ class HomeAnnonces extends Component {
 
             <div className="container-home-annonces">
 
-                <div className="container-introduction" >
+                <div  >
 
-                    <p className="container-introduction-pargraphe">Bity propose de nombreux hébergements pour vous
-                    <br />
-                    Trouvez maison de vos rêves !</p>
-                    <br />
+
                     <div className="container-home-annonces-barre-recherche">
-                        <div> <Search name="typeDeBien"
-                            placeholder="Type de bien"
-                            onChange={(e) => { this.setState({ searchTypeDeBien: e.target.value }) }}
-                            style={{ width: 200 }}
-                        />
+                        <div>
+                            <Form.Item  >
+                                <Select name="typeDeBien"
+                                    placeholder="Type de bien" style={{ width: 200 }} onChange={(value) => { this.setState({ searchTypeDeBien: value }) }} allowClear>
+                                    {TypeDeBien.map(el => <Option value={el.value}>{el.contenue}</Option>)})
+                                </Select>
+                            </Form.Item>
+
 
 
                         </div>
@@ -62,7 +62,7 @@ class HomeAnnonces extends Component {
 
                         <div>
                             <Form.Item  >
-                                <Select placeholder="gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }}>
+                                <Select placeholder="gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }} allowClear>
                                     {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
                                 </Select>
                             </Form.Item>
@@ -71,11 +71,12 @@ class HomeAnnonces extends Component {
 
                         <div>
                             <Form.Item >
-                                <Select placeholder="Période" style={{ width: 200 }} name="periode" onChange={(value) => { this.setState({ searchPeriode: value }) }}>
+                                <Select placeholder="Période" style={{ width: 200 }} name="periode" onChange={(value) => { this.setState({ searchPeriode: value }) }} allowClear>
                                     <Option value="par jour">par jour</Option>
                                     <Option value="par mois">par mois</Option>
                                 </Select>
                             </Form.Item>
+
                         </div>
 
                     </div>

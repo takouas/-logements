@@ -48,7 +48,7 @@ export default class VoirPlus extends Component {
 
                         <p>Description : {this.props.description}</p>
 
-                        <p>Reservation ou contact :<br />
+                        <p>Contactez votre logement Par tél ou mail:<br />
                         par email :  {this.props.emailAnnonce} <br />
                         par télephone :  {this.props.telephoneAnnonce}
                         </p>

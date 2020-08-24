@@ -11,22 +11,29 @@ export function getUsersFromApi() {
 
 export function postUsersToApi(el) {
     return () => {
-        axios.post("http://localhost:5000/users", {
-            _id: el._id,
-            nom: el.nom,
-            prenom: el.prenom,
-            role: el.role,
-            motDePasse: el.motDePasse,
-            telephone: el.telephone,
-            email: el.email
-
-        }).then((res) =>
+        axios.post("http://localhost:5000/users/register", el).then((res) =>
             console.log(res.data))
         window.location.reload()
     }
 }
 
 
+export function postUsersLoginToApi(el) {
+    console.log("gklj")
+    return () => {
+        axios.post("http://localhost:5000/users/login",
+            el
+        ).then((res) => {
+            console.log(res.data)
+            localStorage.setItem('token', res.data)
+            window.location.reload()
+            console.log(el.motDePasse)
+        }
+        )
+
+
+    }
+}
 // // **************************delete users ******************************/
 
 export function deleteUsersFromApi(el) {

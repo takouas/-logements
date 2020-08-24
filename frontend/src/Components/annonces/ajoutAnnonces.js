@@ -5,9 +5,17 @@ import { getAnnonceFromApi, postAnnonceToApi } from "../../api/annoncesApi"
 import { connect } from 'react-redux';
 import axios from "axios"
 import gouvernorat from '../../ressource/gouvernorat'
+import TypeDeBien from '../../ressource/typeDeBien'
+import { PlusOutlined } from '@ant-design/icons';
+import jwt from 'jsonwebtoken';
 const { TextArea } = Input;
 
 
+
+
+var token = localStorage.getItem('token')
+var decoded = jwt.decode(token,);
+console.log(decoded)
 
 
 
@@ -23,7 +31,8 @@ class AjoutAnnonces extends Component {
         gouvernorat: "",
         typeDeBien: "",
         periode: "",
-        image: [],
+        image: "",
+        file: "",
         description: "",
         emailAnnonce: "",
         telephoneAnnonce: ""
@@ -38,14 +47,15 @@ class AjoutAnnonces extends Component {
     //upload picture
     handleOnUploadFile(e) {
         this.setState({ image: e.target.files[0].name });
+        this.setState({ file: e.target.files })
 
     }
 
     handleOnSubmit() {
 
         const formData = new FormData();
-        formData.append("file", this.state.image);
-        // console.log(this.state.image);
+        formData.append("file", this.state.file[0]);
+        console.log(this.state.file[0]);
         // console.log(formData)
 
         axios
@@ -68,9 +78,9 @@ class AjoutAnnonces extends Component {
                 <Button className="" onClick={this.showModal} style={{
                     fontSize: 15,
                     fontFamily: 'Cormorant Infant serif',
-                    fontWeight: 'bold',
+                    fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff', borderColor: 'fff', margin: '25px 65px'
                 }}>
-                    Déposer une annonce
+                    <PlusOutlined /> Déposer une annonce
             </Button>
                 <Modal
                     visible={visible}
@@ -84,16 +94,23 @@ class AjoutAnnonces extends Component {
                         fontWeight: 'bold',
                     }}
                 >
-                    <div>
+                    <Form enctype='multipart/form-data'>
+                        <Form.Item name={['user', 'email']} rules={[{
+                            type: 'email', required: true,
+                            message: 'SVP entrer votre adresse email ! ',
+                        }]}>
+
+                        </Form.Item>
 
                         <div className='container-modal-section1'>
                             <Form.Item
                                 name="select" >
                                 <p>Etat de bien : </p>
-                                <Select placeholder="Etat de bien " style={{ width: 150 }} onChange={(value) => { this.setState({ typeDeBien: value }) }}>
-                                    <Option value="maison">maison</Option>
-                                    <Option value="chambre">chambre</Option>
-                                    <Option value="foyer privé">foyer privé</Option>
+                                <Select placeholder="Etat de bien " style={{ width: 150 }} onChange={(value) => { this.setState({ typeDeBien: value }) }} rules={[{
+                                    required: true,
+                                    message: 'SVP entrer votre Etat de bien ! ',
+                                }]}>
+                                    {TypeDeBien.map(el => <Option value={el.value}>{el.contenue}</Option>)}
                                 </Select>
                             </Form.Item>
                             <Form.Item
@@ -103,7 +120,10 @@ class AjoutAnnonces extends Component {
 
                             >
                                 <p>Période :</p>
-                                <Select placeholder="Période" style={{ width: 150 }} onChange={(value) => { this.setState({ periode: value }) }}>
+                                <Select placeholder="Période" style={{ width: 150 }} rules={[{
+                                    required: true,
+                                    message: 'SVP entrer votre Période ! ',
+                                }]} onChange={(value) => { this.setState({ periode: value }) }}>
                                     <Option value="par jour">par jour</Option>
                                     <Option value="par mois">par mois</Option>
                                 </Select>
@@ -116,7 +136,10 @@ class AjoutAnnonces extends Component {
                             >
                                 <p> Gouvernorats :</p>
                                 <Select placeholder="Gouvernorats" style={{ width: 150 }}
-
+                                    rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre Gouvernorats ! ',
+                                    }]}
                                     onChange={(value) => { this.setState({ gouvernorat: value }) }}
                                 >
                                     {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
@@ -127,56 +150,71 @@ class AjoutAnnonces extends Component {
 
                         <div className='container-modal-section2'>
                             <span>
-                                <p>prix :</p>
-                                <Input placeholder="prix" style={{ width: 200 }} onChange={(e) => { this.setState({ prix: e.target.value }) }} />
+                                <Form.Item>
+                                    <p>prix :</p>
+                                    <Input placeholder="prix" style={{ width: 200 }} onChange={(e) => { this.setState({ prix: e.target.value }) }} rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre prix ! ',
+                                    }]} />
+                                </Form.Item>
                             </span>
 
                             <span>
-                                <p>nombre de personne :</p>
-                                <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersonne: e.target.value }) }} />
+                                <Form.Item>
+                                    <p>nombre de personne :</p>
+                                    <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersonne: e.target.value }) }} />
+                                </Form.Item>
                             </span>
                         </div>
                         <br />
                         <div className='container-modal-section2'>
-                            <span> <p>téléphone :</p>
+                            <Form.Item>
+                                <p>téléphone :</p>
 
-                                <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephoneAnnonce: e.target.value }) }} />
+                                <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephoneAnnonce: e.target.value }) }} rules={[{
+                                    required: true,
+                                    message: 'SVP entrer votre prix ! ',
+                                }]} />
 
-                            </span>
 
-                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}    > <p>E-mail : </p>
+                            </Form.Item>
+                            <Form.Item name={['user', 'email']} rules={[{
+                                type: 'email', required: true,
+                                message: 'SVP entrer votre email ! ',
+                            }]}    > <p>E-mail : </p>
                                 <Input placeholder="E-mail" onChange={(e) => { this.setState({ emailAnnonce: e.target.value }) }} />
                             </Form.Item>
 
                         </div>
 
 
-                        <div >
+                        <Form.Item>
 
                             <span>File</span>
                             <Input name="file" type="file" onChange={(e) => this.handleOnUploadFile(e)} />
 
-                        </div>
-                        <Button type="submit" class="btn" onClick={() => this.handleOnSubmit()}>Submit</Button>
+
+                            <Button type="submit" class="btn" onClick={() => this.handleOnSubmit()}>Submit</Button>
+
+                        </Form.Item>
+
+                        <Form.Item>
+                            <p>Adress : </p>
+
+                            <Input placeholder="adress" onChange={(e) => { this.setState({ adress: e.target.onChange }) }} />
+
+                        </Form.Item>
 
 
-
-
-                        <p>Adress : </p>
-                        <Input placeholder="adress" onChange={(e) => { this.setState({ adress: e.target.onChange }) }} />
-
-
-
-
-
-                        <p>Description :</p>
-                        <TextArea placeholder="description" allowClear onChange={(e) => { this.setState({ description: e.target.value }) }} />
-
+                        <Form.Item>
+                            <p>Description :</p>
+                            <TextArea placeholder="description" allowClear onChange={(e) => { this.setState({ description: e.target.value }) }} />
+                        </Form.Item>
                         <Form.Item>
                             <Button className='button-ajout' htmlType="submit" style={{
                                 fontSize: 15,
                                 fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold',
+                                fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
                             }} onClick={
                                 () =>
                                     this.props.postAnnonceToApi({
@@ -188,13 +226,14 @@ class AjoutAnnonces extends Component {
                                         "image": this.state.image,
                                         "description": this.state.description,
                                         "emailAnnonce": this.state.emailAnnonce,
-                                        "telephoneAnnonce": this.state.telephoneAnnonce
+                                        "telephoneAnnonce": this.state.telephoneAnnonce,
+                                        "emailUsers": decoded.user.email
                                     })
                             }>
                                 ajout
         </Button>
                         </Form.Item>
-                    </div>
+                    </Form>
 
                 </Modal>
             </>

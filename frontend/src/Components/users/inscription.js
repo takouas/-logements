@@ -26,6 +26,7 @@ class Inscription extends Component {
         telephone: "",
         email: "",
         visible: false,
+
     };
 
     showModal = () => {
@@ -60,29 +61,43 @@ class Inscription extends Component {
                         fontSize: 15,
                         fontFamily: 'Cormorant Infant serif',
                         fontWeight: 'bold',
+                        backgroundColor: '##e00034'
                     }}
                 >
-                    <div>
-
-                        <div className="container-inscription-nom-prenom-tél-role">
-                            <span> <p>Nom :</p>
-                                <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} /></span>
-                            <span> <p>Prénom :</p>
-                                <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} /></span>
-                        </div>
-
+                    <div >
                         <Form
                             name="normal_login"
-                            className="login-form"
+                       
                             initialValues={{
                                 remember: true,
                             }}
 
                             onFinish={onFinish}
                         >
+                            <div className="container-inscription-nom-prenom-tél-role">
+                                <span> <p>Nom :</p>
+                                    <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
+                                        {
+                                            required: true,
+                                            message: '!',
+                                        },
+                                    ]} /></span>
+                                <span> <p>Prénom :</p>
+                                    <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
+                                        {
+                                            required: true,
+                                            message: '!',
+                                        },
+                                    ]} /></span>
+                            </div>
 
 
-                            <Form.Item name={['user', 'email']} rules={[{ type: 'email' }]}    > E-mail
+
+
+                            <Form.Item name={['user', 'email']} rules={[{
+                                type: 'email', required: true,
+                                message: 'SVP entrer votre adresse email ! ',
+                            }]}  > E-mail
                                 <Input placeholder="E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} />
                             </Form.Item>
 
@@ -99,14 +114,24 @@ class Inscription extends Component {
                                 <Input.Password
 
                                     placeholder="mot de passe" iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                    onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
+                                    onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} rules={[
+                                        {
+                                            required: true,
+                                            message: '!',
+                                        },
+                                    ]} />
                             </Form.Item>
 
 
 
                             <div className="container-inscription-nom-prenom-tél-role">
                                 <span>
-                                    <Select style={{ width: 200 }}  placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} >
+                                    <Select style={{ width: 200 }} placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} rules={[
+                                        {
+                                            required: true,
+                                            message: '!',
+                                        },
+                                    ]}>
 
                                         <Option value="client">Client</Option>
                                         <Option value="propriétaire">Propriétaire</Option>
@@ -115,7 +140,12 @@ class Inscription extends Component {
                                 </span>
                                 <span> <p>votre numéro de téléphone</p>
 
-                                    <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
+                                    <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} rules={[
+                                        {
+                                            required: true,
+                                            message: '!',
+                                        },
+                                    ]} />
 
                                 </span>
 
@@ -128,20 +158,24 @@ class Inscription extends Component {
                                 <Button className='button-connecxion-inscription' htmlType="submit" style={{
                                     fontSize: 15,
                                     fontFamily: 'Cormorant Infant serif',
-                                    fontWeight: 'bold',
-                                }} onClick={
+                                    fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
+                                }}
+                                 onClick={
                                     () =>
                                         this.props.postUsersToApi({
-                                            "nom": this.state.nom,
-                                            "prenom": this.state.prenom,
-                                            "role": this.state.role,
-                                            "motDePasse": this.state.motDePasse,
-                                            "telephone": this.state.telephone,
-                                            "email": this.state.email
+                                            nom: this.state.nom,
+                                            prenom: this.state.prenom,
+                                            role: this.state.role,
+                                            motDePasse: this.state.motDePasse,
+                                            telephone: this.state.telephone,
+                                            email: this.state.email
                                         })
-                                }>
+                                }
+                                >
                                     Inscription
         </Button>
+        
+
                             </Form.Item>
                         </Form>
 

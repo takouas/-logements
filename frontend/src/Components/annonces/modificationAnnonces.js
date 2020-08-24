@@ -5,6 +5,7 @@ import { patchAnnonceToApi, getAnnonceFromApi } from "../../api/annoncesApi"
 import { FormOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import gouvernorat from '../../ressource/gouvernorat'
+import TypeDeBien from '../../ressource/typeDeBien'
 import axios from "axios"
 const { TextArea } = Input;
 
@@ -50,7 +51,7 @@ class ModifierAnnonces extends Component {
             <>
 
 
-                <Button className="" onClick={this.showModal}>
+                <Button className="" onClick={this.showModal} style={{ backgroundColor: 'transparent'}} >
                     <FormOutlined className='page-list-annonces-propritaire-button-edite' />
                 </Button>
                 <Modal
@@ -71,9 +72,7 @@ class ModifierAnnonces extends Component {
                                 name="select" >
                                 <p>Etat de bien : </p>
                                 <Select placeholder="Etat de bien " style={{ width: 150 }} value={this.state.typeDeBien} onChange={(value) => { this.setState({ typeDeBien: value }) }} defaultValue={this.props.stateAnnonces.typeDeBien}>
-                                    <Option value="maison">maison</Option>
-                                    <Option value="chambre">chambre</Option>
-                                    <Option value="foyer privé">foyer privé</Option>
+                                    {TypeDeBien.map(el => <Option value={el.value}>{el.contenue}</Option>)}
                                 </Select>
                             </Form.Item>
                             <Form.Item

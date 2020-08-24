@@ -3,12 +3,21 @@
 
 }
 .container-nav-button-users-connection{
-    margin-right: 10px;
+  
+    border-color: black !important;
+
+border-left-color: transparent !important;
+border-right-color: transparent!important;
     margin-top: 10px;  
     width: 100px;
+   
     }
 .container-nav-button-users-regestir{
+    margin-left: 15px;
               margin-top: 10px; 
+              border-color: black !important;
+              border-right-color: transparent!important;
+              border-left-color: transparent !important;
               width: 100px; 
            }
 
@@ -18,4 +27,12 @@
     flex-flow: row wrap;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+.btn-déconnexion{
+  
+    margin-top: 48px !important;
+    border-color: black !important;
+    border-right-color: transparent!important;
+    border-left-color: transparent !important;
+    width: 100px; 
 }

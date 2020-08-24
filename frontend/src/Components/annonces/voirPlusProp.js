@@ -1,15 +1,9 @@
+
 import React, { Component } from 'react'
 import { Modal, Button, Form, Input, Checkbox } from 'antd';
-import { DeleteOutlined, CaretDownOutlined, UserOutlined, MailOutlined, UnlockOutlined, PhoneOutlined } from '@ant-design/icons';
-import { connect } from 'react-redux';
+import { ArrowsAltOutlined } from '@ant-design/icons';
 
-import { getUsersFromApi } from "../../api/usersApi"
-
-
-
-
-
-export default class Details extends Component {
+export default class voirPlusProp extends Component {
 
 
     state = {
@@ -32,12 +26,17 @@ export default class Details extends Component {
         const { visible } = this.state;
         return (
             <>
-                <Button className="" onClick={this.showModal}>
-                    <CaretDownOutlined className='page-admin-button-détails' />
+                <Button className="" onClick={this.showModal} style={{
+                    float: "right",
+                    fontSize: 15,
+                    fontFamily: 'Cormorant Infant serif',
+                    fontWeight: 'bold',
+                }} >
+               <ArrowsAltOutlined />
                 </Button>
                 <Modal
                     visible={visible}
-                    title="Details"
+                    title=" voir plus"
                     onCancel={this.handleCancel}
                     footer={false}
                     style={{
@@ -47,12 +46,17 @@ export default class Details extends Component {
                     }}
                 >
                     <div>
-                        <p className='details'><UserOutlined /> Prenom : {this.props.prenom}</p>
-                        <hr></hr>
-                        <p className='details'><MailOutlined /> E-mail :  {this.props.email}</p>
+                        
+                        <p>Nombre de personne : {this.props.nombreDePersonne}</p>
 
-                        <hr></hr>
-                        <p className='details'> <PhoneOutlined /> Telephone : {this.props.telephone} </p>
+                        <p>Description : {this.props.description}</p>
+
+                        <p>Reservation ou contact :<br />
+                        par email :  {this.props.emailAnnonce} <br />
+                        par télephone :  {this.props.telephoneAnnonce}
+                        </p>
+
+
 
                     </div>
                 </Modal>

@@ -1,29 +1,34 @@
 /*********************** introduction *************************/
 .container-introduction{
-background-image: url(https://static.paruvendu.fr/communfo/img/depose/landing_v4/siteannonces11.jpg);
+    background-color: #fafcfe;
 
-/* background-color: #e5e7e8;  */
-
-height: 250px;
-background-repeat: no-repeat;
-background-position: center;
- 
-    margin: 20px;
-
-    border-radius: 5px;
- 
-    /* font-family: heroTitle;
-
-    line-height: 37px;
-    color: rgb(59, 57, 63); */
 }
 .container-introduction-pargraphe{
-    font-size: 26px;
+    font-size: 16px;
     color: black;
-
+margin-bottom: 25px;
     text-align: center;
     font-weight:bold ;
 
+
+
+}
+.container-home-annonces-footer{
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background-color: #fafcfe;
+}
+.container-card-list-guest{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.container-home-annonces-reseaux{
+
+
+        float: right;
 }
 /***************** List Annonces *******************************/
 .container-card-list{
@@ -33,10 +38,16 @@ background-position: center;
 }
 /******************** Home Annonces ****************************/
 .container-home-annonces-barre-recherche{
+ 
     display: flex;
     flex-flow: row wrap;
+
     justify-content: space-around;
-    margin-bottom: 15px;
+
+
+   
+
+    
 }
 
 
@@ -47,10 +58,13 @@ background-position: center;
     justify-content: space-between;
 }
 .page-list-annonces-propritaire-button-edite{
-    color:#21b4ff;
+    color:#40a9ff;
+    zoom:1.5
+
 }
 .page-list-annonces-propritaire-button-delete{
     color: red;
+    zoom:1.5
 
 }
 /************************* ajout annonce*********************/
@@ -68,3 +82,4 @@ background-position: center;
     float: right;
     margin-top: 25px;
 }
+

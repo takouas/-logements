@@ -10,18 +10,22 @@ app.use(cors());
 // import routes
 const annoncesRoute = require('./routes/annoncesRoute')
 const usersRoute = require('./routes/usersRoute')
-//route middelware
+
+//middelware that parses incoming requests with JSON payloads and is based on body-parser.
 app.use(express.json())
+//route middelware
+
 app.use('/annonces', annoncesRoute)
 app.use('/users', usersRoute)
 
 
+// connect to DB
 
 mongoose.connect(process.env.uri, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('connected'))
 app.listen(5000)
 
 
-
+// upload image
 app.use(express.static('./public'))
 const storage = multer.diskStorage({
     destination: "./public",
@@ -30,41 +34,26 @@ const storage = multer.diskStorage({
     },
 });
 
-// Check File Type
-function checkFileType(file, cb) {
-    // Allowed ext
-    const filetypes = /jpeg|jpg|png|gif/;
-    // Check ext
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-    // Check mime
-    const mimetype = filetypes.test(file.mimetype);
 
-    if (mimetype && extname) {
-        return cb(null, true);
-    } else {
-        cb('Error: Images Only!');
-    }
-}
-
-// Init Upload
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 3000000 },
-    fileFilter: function (req, file, cb) {
-        checkFileType(file, cb);
-    }
-}).single('file');
+
+
+}).array('file');
 
 app.post('/image', (req, res) => {
-    console.log()
+
     upload(req, res, (err) => {
         if (err) {
+            console.log("ok")
             res.send({ msg: err });
         } else {
+
             if (req.file == undefined) {
                 res.send({ msg: 'Error: No File Selected!' });
             } else {
-                res.send(req.file.filename)
+
+                res.send(req.file)
             }
         }
 

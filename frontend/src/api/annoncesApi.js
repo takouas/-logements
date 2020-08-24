@@ -20,7 +20,8 @@ export function postAnnonceToApi(el) {
             image: el.image,
             description: el.description,
             telephoneAnnonce: el.telephoneAnnonce,
-            emailAnnonce: el.emailAnnonce
+            emailAnnonce: el.emailAnnonce,
+            emailUsers: el.emailUsers
         }).then((res) =>
             console.log(res.data))
         window.location.reload()

@@ -5,7 +5,9 @@ import { Modal, Button, Form, Input, Checkbox } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
+import { postUsersLoginToApi } from "../../api/usersApi"
 import './users.css';
+import { connect } from 'react-redux';
 
 
 
@@ -13,7 +15,7 @@ const onFinish = values => {
   console.log('Received values of form: ', values);
 };
 
-export default class Connection extends Component {
+class Connection extends Component {
   state = {
     loading: false,
     visible: false,
@@ -39,7 +41,7 @@ export default class Connection extends Component {
           fontFamily: 'Cormorant Infant serif',
           fontWeight: 'bold',
         }}>
-          Connecxion
+          Connexion
         </Button>
         <Modal
           visible={visible}
@@ -50,16 +52,20 @@ export default class Connection extends Component {
             fontSize: 15,
             fontFamily: 'Cormorant Infant serif',
             fontWeight: 'bold',
+             backgroundColor: '#e00034'
           }}
         >
-          <div>
+          <div  style={{
+            fontSize: 15,
+            fontFamily: 'Cormorant Infant serif',
+            fontWeight: 'bold',
+            
+          }}>
 
             <Form
               name="normal_login"
               className="login-form"
-              initialValues={{
-                remember: true,
-              }}
+
 
               onFinish={onFinish}
             >
@@ -71,7 +77,7 @@ export default class Connection extends Component {
                 type: 'email', required: true,
                 message: 'SVP entrer votre adresse email ! ',
               }]}>
-                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="E-mail" />
+                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} />
               </Form.Item>
 
 
@@ -92,7 +98,7 @@ export default class Connection extends Component {
                   placeholder="mot de passe" iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                   prefix={<LockOutlined className="site-form-item-icon" />}
                   type="password"
-                  placeholder="mot de passe"
+                  placeholder="mot de passe" onChange={(e) => { this.setState({ motDePasse: e.target.value }) }}
                 />
 
 
@@ -103,9 +109,19 @@ export default class Connection extends Component {
                 <Button className='button-connecxion-inscription' htmlType="submit" style={{
                   fontSize: 15,
                   fontFamily: 'Cormorant Infant serif',
-                  fontWeight: 'bold',
-                }} >
-                  Connecxion
+                  fontWeight: 'bold', backgroundColor: '#e00034',color:'#fff'
+                }}
+                  onClick={
+                    () =>
+                      this.props.postUsersLoginToApi(
+
+                        {
+                          email: this.state.email,
+                          motDePasse: this.state.motDePasse
+                        }
+                      )
+                  }>
+                  Connexion
         </Button>
 
               </Form.Item>
@@ -120,4 +136,12 @@ export default class Connection extends Component {
     );
   }
 }
+const mapStateToProps = () => {
 
+}
+const mapDispatchToProps = (dispatch) => ({
+  postUsersLoginToApi: (el) => dispatch(postUsersLoginToApi(el))
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Connection)

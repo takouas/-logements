@@ -25,10 +25,10 @@ class GestionnaireUsers extends Component {
             <div>
 
                 <div className="container-page-admin-barre-recherche" >
-                    <div><Search placeholder="Nom" name="nom" style={{ width: 200 }} onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
+                    <div><Search placeholder="Nom" name="nom" style={{ width: 200 ,marginBottom:15,marginTop:55}} onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
                     <div>
                         <Form.Item >
-                            <Select placeholder="Role" name="role" style={{ width: 200 }} onChange={(value) => { this.setState({ searchRole: value }) }}>
+                            <Select placeholder="Role" name="role" allowClear style={{ width: 200 ,marginBottom:15,marginTop:55}} onChange={(value) => { this.setState({ searchRole: value }) }}>
                                 <Option value="admin">Admin</Option>
                                 <Option value="client">Client</Option>
                                 <Option value="propriétaire">Propriétaire</Option>
