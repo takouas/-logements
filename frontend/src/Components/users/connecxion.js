@@ -9,6 +9,18 @@ import { postUsersLoginToApi } from "../../api/usersApi"
 import './users.css';
 import { connect } from 'react-redux';
 
+// import jwt from 'jsonwebtoken';
+
+
+// var token = localStorage.getItem('token')
+// var decoded = jwt.decode(token,);
+
+
+// if (decoded.user !== null) { alert(decoded.user.email) }
+// else {
+//   var user = "guest"
+// }
+
 
 
 const onFinish = values => {
@@ -52,14 +64,14 @@ class Connection extends Component {
             fontSize: 15,
             fontFamily: 'Cormorant Infant serif',
             fontWeight: 'bold',
-             backgroundColor: '#e00034'
+            backgroundColor: '#e00034'
           }}
         >
-          <div  style={{
+          <div style={{
             fontSize: 15,
             fontFamily: 'Cormorant Infant serif',
             fontWeight: 'bold',
-            
+
           }}>
 
             <Form
@@ -109,7 +121,7 @@ class Connection extends Component {
                 <Button className='button-connecxion-inscription' htmlType="submit" style={{
                   fontSize: 15,
                   fontFamily: 'Cormorant Infant serif',
-                  fontWeight: 'bold', backgroundColor: '#e00034',color:'#fff'
+                  fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
                 }}
                   onClick={
                     () =>

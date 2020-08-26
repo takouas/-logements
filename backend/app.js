@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 require('dotenv/config')
 const multer = require('multer')
-const path = require('path');
+
 const cors = require("cors");
 //add cors
 app.use(cors());
@@ -26,6 +26,8 @@ app.listen(5000)
 
 
 // upload image
+
+
 app.use(express.static('./public'))
 const storage = multer.diskStorage({
     destination: "./public",
@@ -34,11 +36,8 @@ const storage = multer.diskStorage({
     },
 });
 
-
 const upload = multer({
     storage: storage,
-
-
 }).array('file');
 
 app.post('/image', (req, res) => {

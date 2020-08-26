@@ -1,6 +1,6 @@
 /*********************** introduction *************************/
 .container-introduction{
-    background-color: #fafcfe;
+    background-color: #f1f5fa;
 
 }
 .container-introduction-pargraphe{
@@ -18,7 +18,7 @@ margin-bottom: 25px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: #fafcfe;
+    background-color: #f1f5fa;
 }
 .container-card-list-guest{
     display: flex;

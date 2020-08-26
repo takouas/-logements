@@ -43,19 +43,21 @@ class HomeGuest extends Component {
             <div className="container-home-annonces">
 
                 <div  >
+                    <br/>
                     <Carousel autoplay dots={false} >
-                    {this.props.stateAnnonces.map(el=><center><img alt="maison" src={"http://localhost:5000/" + el.image} style={{ width:"50%"}} /></center>)}
+                    {this.props.stateAnnonces.map(el=><center><img alt="maison" src={"http://localhost:5000/" + el.image} style={{ width:"55%",hight:"15%"}} /></center>)}
                     </Carousel>,
                     <div className="container-introduction">
-                            <h3 className="container-introduction-pargraphe" >      Bity propose de nombreux hébergements pour tout et spécialement pour les étudiants </h3>
+                            <h3 className="container-introduction-pargraphe" >     
+                             Bity vous propose plusieurs choix  d'hébergements  spécialement pour vous  les étudiants </h3>
                      
-                            <h3 className="container-introduction-pargraphe">Vous cherchez une location étudiant ? Bienvenue sur Bity
+                            <h3 className="container-introduction-pargraphe">Vous cherchez un logement  ? Bienvenue sur Bity
                            
                    </h3>
                    
-                            <h3 className="container-introduction-pargraphe"> Trouvez maison de vos rêves !</h3>
+                            <h3 className="container-introduction-pargraphe"> Trouvez la maison de vos rêves !</h3>
                    
-                            <h3 className="container-introduction-pargraphe"> Vous trouverez des annonces de locations étudiants en résidence, de locations par particulier</h3>
+                        
                         </div>
                     <div className="container-home-annonces-barre-recherche" >
                  

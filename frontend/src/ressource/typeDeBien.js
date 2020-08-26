@@ -1,2 +1,2 @@
-const tab=[{ value: "maison", contenue: "Maison" },{ value: "Foyer privé", contenue: "Foyer privé" },{ value: "résidance", contenue: "Résidance" },{ value: "chambre", contenue: "Chambre" }]
+const tab=[{ value: "maison", contenue: "Maison" },{ value: "Foyer privé", contenue: "Foyer privé" },{ value: "résidance", contenue: "Résidance" },{ value: "chambre", contenue: "Chambre" },{ value: "studio", contenue: "Studio" },{ value: "maison de jeune", contenue: "Maison de jeune" }]
 export default tab ;
