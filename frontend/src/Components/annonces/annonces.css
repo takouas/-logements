@@ -1,15 +1,14 @@
-/*********************** introduction *************************/
+/*********************** Home guset *************************/
 .container-introduction{
     background-color: #f1f5fa;
 
 }
 .container-introduction-pargraphe{
-    font-size: 16px;
+    font-size: 22px;
     color: black;
 margin-bottom: 25px;
     text-align: center;
     font-weight:bold ;
-
 
 
 }
@@ -24,31 +23,62 @@ margin-bottom: 25px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+ 
 }
+
 .container-home-annonces-reseaux{
-
-
         float: right;
 }
+.container-home-annonces-section-barre-recherche-et-annonce{
+    display: flex;
+    margin-top: 25px;
+}
+
 /***************** List Annonces *******************************/
 .container-card-list{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
-/******************** Home Annonces ****************************/
-.container-home-annonces-barre-recherche{
+.vl {
+    border-left: 6px solid #f1f5fa;
+
+    margin-right:5px ;
+  }
+  .container-home-annonces-barre-recherche{
  
     display: flex;
     flex-flow: row wrap;
-
-    justify-content: space-around;
-
-
+    justify-content: space-around;  
+}
+.ant-pagination-item-link{
+    border-radius:50% !important;
+    background-color: #f1f5fa !important;
+}
+.ant-pagination-item {
+    border-radius:50% !important;
+    background-color: #f1f5fa !important;
    
 
-    
 }
+a{
+  
+    font-weight:bold ;
+}
+.ant-select-selector{
+    font-weight:bold ;  
+    color: black !important;
+ 
+}
+.ant-input{
+    font-weight:bold ;  
+    color: black !important;  
+}
+.back-top{
+  
+}
+/******************** Home Annonces ****************************/
+
 
 
 /***************** ListAnnoncesProp*******************************/
@@ -65,6 +95,11 @@ margin-bottom: 25px;
 .page-list-annonces-propritaire-button-delete{
     color: red;
     zoom:1.5
+
+}
+.container-confirmation-supprimer{
+    display: flex;
+padding-left: 250px;
 
 }
 /************************* ajout annonce*********************/

@@ -16,15 +16,16 @@ const Home = () => {
 
   if (token !== null) {
     var decoded = jwt.decode(token,);
-  
+ 
     if (decoded.user !== undefined) {
       var user = decoded.user.role
+
     }
     else {
       var user = "guest"
     }
   }
-  
+
 
   if (user == "admin") {
     return <GestionnaireUsers />
@@ -36,7 +37,7 @@ const Home = () => {
     return <HomeAnnonces />
   }
 
-else  {
+  else {
 
 
 

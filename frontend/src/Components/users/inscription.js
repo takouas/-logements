@@ -40,6 +40,19 @@ class Inscription extends Component {
     handleCancel = () => {
         this.setState({ visible: false });
     };
+    submit = (e) => {
+
+        this.props.postUsersToApi({
+            nom: this.state.nom,
+            prenom: this.state.prenom,
+            role: this.state.role,
+            motDePasse: this.state.motDePasse,
+            telephone: this.state.telephone,
+            email: this.state.email
+        })
+    }
+
+
 
     render() {
         const { visible } = this.state;
@@ -48,7 +61,7 @@ class Inscription extends Component {
                 <Button className="container-nav-button-users-regestir" onClick={this.showModal} style={{
                     fontSize: 15,
                     fontFamily: 'Cormorant Infant serif',
-                    fontWeight: 'bold',
+                    fontWeight: 'bold'
                 }}>
                     Inscription
         </Button>
@@ -61,13 +74,13 @@ class Inscription extends Component {
                         fontSize: 15,
                         fontFamily: 'Cormorant Infant serif',
                         fontWeight: 'bold',
-                        backgroundColor: '##e00034'
+                        backgroundColor: '#e00034'
                     }}
                 >
                     <div >
                         <Form
                             name="normal_login"
-                       
+
                             initialValues={{
                                 remember: true,
                             }}
@@ -75,20 +88,29 @@ class Inscription extends Component {
                             onFinish={onFinish}
                         >
                             <div className="container-inscription-nom-prenom-tél-role">
-                                <span> <p>Nom :</p>
-                                    <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
-                                        {
-                                            required: true,
-                                            message: '!',
-                                        },
-                                    ]} /></span>
-                                <span> <p>Prénom :</p>
-                                    <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
-                                        {
-                                            required: true,
-                                            message: '!',
-                                        },
-                                    ]} /></span>
+                                <span> <p>* Nom :</p>
+                                    <Form.Item name='nom' rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre  ! ',
+                                    }]}  >
+                                        <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
+                                            {
+                                                required: true,
+                                                message: '!',
+                                            },
+                                        ]} /> </Form.Item></span>
+                                <span> <p>* Prénom :</p>
+                                    <Form.Item name='prénom' rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre  ! ',
+                                    }]}  >
+                                        <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
+                                            {
+                                                required: true,
+                                                message: '!',
+                                            },
+                                        ]} />
+                                    </Form.Item></span>
                             </div>
 
 
@@ -97,7 +119,7 @@ class Inscription extends Component {
                             <Form.Item name={['user', 'email']} rules={[{
                                 type: 'email', required: true,
                                 message: 'SVP entrer votre adresse email ! ',
-                            }]}  > E-mail
+                            }]}  >* E-mail
                                 <Input placeholder="E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} />
                             </Form.Item>
 
@@ -110,7 +132,7 @@ class Inscription extends Component {
                                         message: '!',
                                     },
                                 ]}
-                            > mot de passe
+                            > * Mot de passe
                                 <Input.Password
 
                                     placeholder="mot de passe" iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
@@ -126,55 +148,56 @@ class Inscription extends Component {
 
                             <div className="container-inscription-nom-prenom-tél-role">
                                 <span>
-                                    <Select style={{ width: 200 }} placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} rules={[
-                                        {
-                                            required: true,
-                                            message: '!',
-                                        },
-                                    ]}>
+                                    <p>* Role</p>
+                                    <Form.Item name='role' rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre  ! ',
+                                    }]}  >
+                                        <Select style={{ width: 200 }} placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} rules={[
+                                            {
+                                                required: true,
+                                                message: '!',
+                                            },
+                                        ]}>
 
-                                        <Option value="client">Client</Option>
-                                        <Option value="propriétaire">Propriétaire</Option>
+                                            <Option value="client">Client</Option>
+                                            <Option value="propriétaire">Propriétaire</Option>
 
-                                    </Select>
+                                        </Select>
+                                    </Form.Item>
                                 </span>
-                                <span> <p>votre numéro de téléphone</p>
-
-                                    <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} rules={[
-                                        {
-                                            required: true,
-                                            message: '!',
-                                        },
-                                    ]} />
-
+                                <span> <p>*  Numéro de téléphone</p>
+                                    <Form.Item name='Numéro' rules={[{
+                                        required: true,
+                                        message: 'SVP entrer votre  ! ',
+                                    }]}  >
+                                        <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} rules={[
+                                            {
+                                                required: true,
+                                                message: '!',
+                                            },
+                                        ]} />
+                                    </Form.Item>
                                 </span>
 
 
                             </div>
 
 
-                            <Form.Item>
-
+                            <Form.Item name=''>
+                                <p>* Champ obligatoire</p>
                                 <Button className='button-connecxion-inscription' htmlType="submit" style={{
                                     fontSize: 15,
                                     fontFamily: 'Cormorant Infant serif',
                                     fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
                                 }}
-                                 onClick={
-                                    () =>
-                                        this.props.postUsersToApi({
-                                            nom: this.state.nom,
-                                            prenom: this.state.prenom,
-                                            role: this.state.role,
-                                            motDePasse: this.state.motDePasse,
-                                            telephone: this.state.telephone,
-                                            email: this.state.email
-                                        })
-                                }
+                                    onClicK={
+                                        this.submit
+                                    }
                                 >
                                     Inscription
         </Button>
-        
+
 
                             </Form.Item>
                         </Form>

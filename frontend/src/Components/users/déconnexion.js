@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { Modal, Button, Form, Input, Checkbox } from 'antd';
+import { Modal, Button, Form, Input, Checkbox, Alert } from 'antd';
 import './users.css';
+
+
+
+
 export default class Déconnexion extends Component {
     logout = () => {
         window.localStorage.clear();
@@ -11,8 +15,10 @@ export default class Déconnexion extends Component {
 
 
     render() {
+        
         return (
-            <div>
+            <div className='container-page-déconnexion'>
+            
                 <Button className="btn-déconnexion" onClick={this.logout} >Déconnexion</Button>
             </div>
         )

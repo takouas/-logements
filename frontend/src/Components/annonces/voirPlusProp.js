@@ -1,65 +1,86 @@
 
 import React, { Component } from 'react'
-import { Modal, Button, Form, Input, Checkbox } from 'antd';
+import { Modal, Button, Form, Input, Checkbox, Drawer } from 'antd';
 import { ArrowsAltOutlined } from '@ant-design/icons';
 
-export default class voirPlusProp extends Component {
+export default class VoirPlusProp extends Component {
 
 
     state = {
-
+        placement: 'top',
         visible: false,
     };
 
-    showModal = () => {
+
+    showDrawer = () => {
         this.setState({
             visible: true,
         });
     };
 
 
-    handleCancel = () => {
-        this.setState({ visible: false });
+    onClose = () => {
+        this.setState({
+            visible: false,
+        });
     };
+
 
     render() {
         const { visible } = this.state;
         return (
             <>
-                <Button className="" onClick={this.showModal} style={{
-                    float: "right",
-                    fontSize: 15,
-                    fontFamily: 'Cormorant Infant serif',
-                    fontWeight: 'bold',
-                }} >
-               <ArrowsAltOutlined />
+
+                <Button onClick={this.showDrawer}>
+                    <ArrowsAltOutlined />
                 </Button>
-                <Modal
-                    visible={visible}
-                    title=" voir plus"
-                    onCancel={this.handleCancel}
-                    footer={false}
-                    style={{
-                        fontSize: 15,
-                        fontFamily: 'Cormorant Infant serif',
-                        fontWeight: 'bold',
-                    }}
+                <Drawer
+                    title={false}
+                    height={820}
+                    onClose={this.onClose}
+                    visible={this.state.visible}
+                    bodyStyle={{ paddingBottom: 80 }}
+                    placement={this.state.placement}
+                    footer={
+                        false
+                    }
                 >
+
+
                     <div>
-                        
-                        <p>Nombre de personne : {this.props.nombreDePersonne}</p>
+                        <br></br>
+                        <div style={{ display: 'flex', textAlign: "center" }}>
+                            <td>
+                                <div style={{ width: "670px" }}>
+                                    <img alt="maison" src={"http://localhost:5000/" + this.props.el.image} style={{ height: 250, width: "650px" }} />
+                                </div>
+                            </td>
+                            <td >
+                                <div style={{ width: "529px", textAlign: "center" }}>
+                                    <p>Type de bien : {this.props.el.typeDeBien}</p>
+                                    <p>Gouvernorat :{this.props.el.gouvernorat}</p>
+                                    <p>Nombre de personne : {this.props.el.nombreDePersonne}</p>
+                                    <p>Prix : {this.props.el.prix} DT </p>
+                                    <p> Periode : {this.props.el.periode}</p>
+                                </div>
+                            </td>
+                        </div>
 
-                        <p>Description : {this.props.description}</p>
+                        <td>
+                            <div style={{ width: "1220px", textAlign: "center" }}>
 
-                        <p>Reservation ou contact :<br />
-                        par email :  {this.props.emailAnnonce} <br />
-                        par télephone :  {this.props.telephoneAnnonce}
-                        </p>
+                                <p>Description : {this.props.el.description}</p>
 
+                                <p>Reservation ou contact :<br />
+                        par email :  {this.props.el.emailAnnonce} <br />
+                        par télephone :  {this.props.el.telephoneAnnonce}
+                                </p>
+                            </div>
+                        </td>
 
 
                     </div>
-                </Modal>
+                </Drawer>
             </>
         );
     }

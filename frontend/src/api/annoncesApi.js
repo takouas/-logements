@@ -43,7 +43,7 @@ export function patchAnnonceToApi(annonce) {
             "typeDeBien": annonce.typeDeBien,
             "periode": annonce.periode,
             "nombreDePersoone": annonce.nombreDePersoone,
-            // "image": annonce.image,
+            "image": annonce.image,
             "description": annonce.description,
             "emailAnnonce": annonce.emailAnnonce,
             "telephoneAnnonce": annonce.telephoneAnnonce

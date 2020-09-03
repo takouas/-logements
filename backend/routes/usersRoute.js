@@ -3,13 +3,15 @@ const express = require('express')
 const router = express.Router()
 const User = require('../model/usersModal')
 const { registerValidation } = require('../validation/validation');
-const { getUsers, deleteUsers } = require('../controllers/usersControllers')
+const { getUsers, deleteUsers, patchPassUsers, patchProfileUsers } = require('../controllers/usersControllers')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 require('dotenv/config')
 
 
 router.get('/', getUsers)
+router.patch('/pass/:id', patchPassUsers)
+router.patch('/profile/:id', patchProfileUsers)
 router.post('/register', async (req, res) => {
   // validate the data before we save a user 
   const { error } = registerValidation(req.body);

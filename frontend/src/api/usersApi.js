@@ -45,3 +45,31 @@ export function deleteUsersFromApi(el) {
 
     }
 }
+// // ************************ edit user ******************************/
+export function patchProfileUserToApi(el) {
+    return () => {
+        console.log(el)
+        axios.patch(`http://localhost:5000/users/profile/${el._id}`, {
+         
+            nom:el.nom,
+            prenom:el.prenom,
+            telephone:el.telephone
+        
+
+        }).then((res) =>
+            console.log(res.data))
+   
+    }
+}
+export function patchPassUserToApi(el) {
+    return () => {
+       
+        axios.patch(`http://localhost:5000/users/pass/${el._id}`, {
+            "motDePasse":el.motDePasse,
+          
+
+        }).then((res) =>
+            console.log(res.data))
+        window.location.reload()
+    }
+}

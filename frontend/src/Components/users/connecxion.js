@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react'
-import { Modal, Button, Form, Input, Checkbox } from 'antd';
+import { Modal, Button, Form, Input, Checkbox, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -9,19 +9,10 @@ import { postUsersLoginToApi } from "../../api/usersApi"
 import './users.css';
 import { connect } from 'react-redux';
 
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 
-// var token = localStorage.getItem('token')
-// var decoded = jwt.decode(token,);
-
-
-// if (decoded.user !== null) { alert(decoded.user.email) }
-// else {
-//   var user = "guest"
-// }
-
-
+var token = localStorage.getItem('token')
 
 const onFinish = values => {
   console.log('Received values of form: ', values);
@@ -32,7 +23,18 @@ class Connection extends Component {
     loading: false,
     visible: false,
   };
+  info = () => {
+    if (token !== null) {
+      var decoded = jwt.decode(token);
+      if (decoded.user !== undefined) {
+        alert('Bienvenue ', decoded.user.prenom);
+      }
 
+    }
+
+
+
+  };
   showModal = () => {
     this.setState({
       visible: true,
@@ -57,7 +59,7 @@ class Connection extends Component {
         </Button>
         <Modal
           visible={visible}
-          title="Connecxion"
+          title="Connexion"
           onCancel={this.handleCancel}
           footer={false}
           style={{
@@ -99,6 +101,10 @@ class Connection extends Component {
               <Form.Item
                 name="password"
                 rules={[
+                  {
+                    type: 'email',
+                    message: 'The input is not valid E-mail!',
+                  },
                   {
                     required: true,
                     message: ' SVP entrer votre mot de passe et appuyer sur le bouton Connecxion! ',

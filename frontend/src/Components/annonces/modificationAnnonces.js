@@ -38,6 +38,25 @@ class ModifierAnnonces extends Component {
     };
 
 
+    //upload picture
+    handleOnUploadFile(e) {
+        this.setState({ image: e.target.files[0].name });
+        this.setState({ file: e.target.files })
+
+    }
+
+    handleOnSubmit() {
+
+        const formData = new FormData();
+        formData.append("file", this.state.file[0]);
+        console.log(this.state.file[0]);
+        // console.log(formData)
+
+        axios
+            .post("http://localhost:5000/image", formData)
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
+    };
 
 
     handleCancel = () => {
@@ -51,7 +70,7 @@ class ModifierAnnonces extends Component {
             <>
 
 
-                <Button className="" onClick={this.showModal} style={{ backgroundColor: 'transparent'}} >
+                <Button className="" onClick={this.showModal} style={{ backgroundColor: 'transparent' }} >
                     <FormOutlined className='page-list-annonces-propritaire-button-edite' />
                 </Button>
                 <Modal
@@ -65,7 +84,7 @@ class ModifierAnnonces extends Component {
                     }}
                 >
 
-                    <div>
+                    <Form enctype='multipart/form-data' >
 
                         <div className='container-modal-section1'>
                             <Form.Item
@@ -132,17 +151,26 @@ class ModifierAnnonces extends Component {
                         </div>
 
 
+                        <Form.Item>
+
+                            <span>File</span>
+                            <Input name="file" type="file" onChange={(e) => this.handleOnUploadFile(e)} />
 
 
-                        <p>Adress : </p>
-                        <Input placeholder="adress" onChange={(e) => { this.setState({ adress: e.target.onChange }) }} />
+                            <Button type="submit" class="btn" onClick={() => this.handleOnSubmit()}>Submit</Button>
+
+                        </Form.Item>
+
+
+                    
                         <p>Description :</p>
                         <TextArea placeholder="description" allowClear onChange={(e) => { this.setState({ description: e.target.value }) }} defaultValue={this.props.stateAnnonces.description} />
 
 
                         <Form.Item>
                             <Button className='button-ajout' onClick={() => this.props.patchAnnonceToApi({
-                                _id: this.state._id, prix: this.state.prix, nombreDePersonne: this.state.nombreDePersonne, gouvernorat: this.state.gouvernorat, typeDeBien: this.state.typeDeBien, periode: this.state.periode, description: this.state.description, telephoneAnnonce: this.state.telephoneAnnonce, emailAnnonce: this.state.emailAnnonce
+                                _id: this.state._id, prix: this.state.prix, 
+                                image:this.state.image,nombreDePersonne: this.state.nombreDePersonne, gouvernorat: this.state.gouvernorat, typeDeBien: this.state.typeDeBien, periode: this.state.periode, description: this.state.description, telephoneAnnonce: this.state.telephoneAnnonce, emailAnnonce: this.state.emailAnnonce
 
                             })} htmlType="submit" style={{
                                 fontSize: 15,
@@ -152,7 +180,7 @@ class ModifierAnnonces extends Component {
                                 modifier
         </Button>
                         </Form.Item>
-                    </div>
+                    </Form>
 
                 </Modal>
             </>
