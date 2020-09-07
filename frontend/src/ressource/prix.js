@@ -1,0 +1,2 @@
+const tab=[{ value: "50", contenue: "moins de 50" },{ value: "100", contenue: "moins de 100" },{ value: "150", contenue: "moins de 150" },{ value: "200", contenue: "moins de 200" },{ value: "250", contenue: "moins de 250" },{ value: "350", contenue: "moins de 350" },{ value: "500", contenue: "moins de 500" },{ value: "800", contenue: "moins de 800" },{ value: "1000", contenue: "moins de 1000" }]
+export default tab ;

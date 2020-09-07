@@ -95,7 +95,7 @@ class AjoutAnnonces extends Component {
                     }}
                 >
                     <Form enctype='multipart/form-data'>
-                   
+
 
                         <div className='container-modal-section1'>
                             <Form.Item
@@ -135,7 +135,7 @@ class AjoutAnnonces extends Component {
                             >
                                 <p> Gouvernorats :</p>
                                 <Select placeholder="Gouvernorats" style={{ width: 150 }}
-                                   
+
                                     onChange={(value) => { this.setState({ gouvernorat: value }) }}
                                 >
                                     {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
@@ -147,19 +147,19 @@ class AjoutAnnonces extends Component {
                         <div className='container-modal-section2'>
                             <span>
                                 <Form.Item name='' rules={[{
-                                        required: true,
-                                        message: 'SVP entrer votre prix ! ',
-                                    }]}>
+                                    required: true,
+                                    message: 'SVP entrer votre prix ! ',
+                                }]}>
                                     <p>prix :</p>
-                                    <Input placeholder="prix" style={{ width: 200 }} onChange={(e) => { this.setState({ prix: e.target.value }) }}  />
+                                    <Input placeholder="prix" style={{ width: 200 }} onChange={(e) => { this.setState({ prix: e.target.value }) }} />
                                 </Form.Item>
                             </span>
 
                             <span>
-                                <Form.Item name=""rules={[{
-                                        required: true,
-                                        message: 'SVP entrer votre nombre de personne ! ',
-                                    }]}>
+                                <Form.Item name="" rules={[{
+                                    required: true,
+                                    message: 'SVP entrer votre nombre de personne ! ',
+                                }]}>
                                     <p>nombre de personne :</p>
                                     <Input placeholder="nombre de personne" style={{ width: 200 }} onChange={(e) => { this.setState({ nombreDePersonne: e.target.value }) }} />
                                 </Form.Item>
@@ -167,10 +167,10 @@ class AjoutAnnonces extends Component {
                         </div>
                         <br />
                         <div className='container-modal-section2'>
-                            <Form.Item name=""rules={[{
-                                        required: true,
-                                        message: 'SVP entrer votre numéro de téléphone! ',
-                                    }]}>
+                            <Form.Item name="" rules={[{
+                                required: true,
+                                message: 'SVP entrer votre numéro de téléphone! ',
+                            }]}>
                                 <p>téléphone :</p>
 
                                 <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephoneAnnonce: e.target.value }) }} rules={[{
@@ -191,9 +191,9 @@ class AjoutAnnonces extends Component {
 
 
                         <Form.Item rules={[{
-                                 required: true,
-                                message: 'SVP entrer votre image ! ',
-                            }]}>
+                            required: true,
+                            message: 'SVP entrer votre image ! ',
+                        }]}>
 
                             <span>File</span>
                             <Input name="file" type="file" onChange={(e) => this.handleOnUploadFile(e)} />
@@ -203,13 +203,14 @@ class AjoutAnnonces extends Component {
 
                         </Form.Item>
 
-            
 
 
-                        <Form.Item name=""rules={[{
-                                        required: true,
-                                        message: 'SVP entrer votre description ! ',
-                                    }]}>
+
+                        <Form.Item name="Description" rules={[{
+                            maxLength: 648,
+                            required: true,
+                            message: 'SVP entrer votre description ! ',
+                        }]}>
                             <p>Description :</p>
                             <TextArea placeholder="description" allowClear onChange={(e) => { this.setState({ description: e.target.value }) }} />
                         </Form.Item>
@@ -218,22 +219,22 @@ class AjoutAnnonces extends Component {
                                 fontSize: 15,
                                 fontFamily: 'Cormorant Infant serif',
                                 fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
-                            }} 
-                            onClick={
-                                () =>
-                                    this.props.postAnnonceToApi({
-                                        "prix": this.state.prix,
-                                        "nombreDePersonne": this.state.nombreDePersonne,
-                                        "gouvernorat": this.state.gouvernorat,
-                                        "typeDeBien": this.state.typeDeBien,
-                                        "periode": this.state.periode,
-                                        "image": this.state.image,
-                                        "description": this.state.description,
-                                        "emailAnnonce": this.state.emailAnnonce,
-                                        "telephoneAnnonce": this.state.telephoneAnnonce,
-                                        "emailUsers": decoded.user.email
-                                    })
-                            }
+                            }}
+                                onClick={
+                                    () =>
+                                        this.props.postAnnonceToApi({
+                                            "prix": this.state.prix,
+                                            "nombreDePersonne": this.state.nombreDePersonne,
+                                            "gouvernorat": this.state.gouvernorat,
+                                            "typeDeBien": this.state.typeDeBien,
+                                            "periode": this.state.periode,
+                                            "image": this.state.image,
+                                            "description": this.state.description,
+                                            "emailAnnonce": this.state.emailAnnonce,
+                                            "telephoneAnnonce": this.state.telephoneAnnonce,
+                                            "emailUsers": decoded.user.email
+                                        })
+                                }
                             >
                                 ajout
         </Button>

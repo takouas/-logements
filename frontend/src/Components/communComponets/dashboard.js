@@ -49,6 +49,7 @@ class Dashboard extends Component {
 
     render() {
         const user = this.props.stateUsers.filter(el => decoded && decoded.user.email === el.email)
+     
         //  console.log(user)
         return (
             <>
@@ -57,8 +58,9 @@ class Dashboard extends Component {
                     Profile
         </Button>
                 <Drawer
+                    className="my-drawer"
                     title={false}
-                    width={520}
+                    width={300}
                     onClose={this.onClose}
                     visible={this.state.visible}
                     bodyStyle={{ paddingBottom: 80 }}
@@ -76,50 +78,13 @@ class Dashboard extends Component {
 
 
                         <hr></hr>
-                        <center>
+                        <div >
                             <ModifierProfile el={el} />
                             <br />
 
-                            <Button style={{ borderColor: "transparent", }} onClick={() => this.setState({ showInputPass: !this.state.showInputPass })} closable>Changer le mot de passe </Button>
-                            <Tag
-                                style={{ width: 440, backgroundColor: "transparent", padding: "15px" }}
 
-                                visible={this.state.showInputPass}
-                                onClose={() => this.setState({ showInputPass: false })}
-                            >
-                                <Button style={{ backgroundColor: "transparent", borderColor: 'transparent', float: 'right' }} onClick={() => this.setState({ showInputPass: false })}  >Fermer</Button><br /><br />
-                                <p className="modifie-profile-pargraphe">Nos mots de passe doivent comprendre au moins 6 caractères </p>
-                                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                    <div>
-
-                                        <p className="modifie-profile-pargraphe">Tapez votre mot de passe actuel : </p>
-                                        <p className="modifie-profile-pargraphe">Tapez le nouveau mot de passe : </p>
-                                        <p className="modifie-profile-pargraphe"> Confirmez le nouveau mot de passe :</p>
-                                    </div>
-                                    <div>
-                                        <Input style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }}
-
-
-                                            onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
-                                        <br />
-                                        <Input style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }}
-
-
-                                            onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
-                                        <br />
-
-                                        <Input style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }}
-
-
-                                            onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
-                                    </div>
-
-                                </div>
-                                <Button >Enregistrer</Button>
-                            </Tag>
-                            <hr></hr>
                             <Déconnexion />
-                        </center> </div>)}
+                        </div> </div>)}
 
                 </Drawer>
 

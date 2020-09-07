@@ -50,23 +50,25 @@ export function patchProfileUserToApi(el) {
     return () => {
         console.log(el)
         axios.patch(`http://localhost:5000/users/profile/${el._id}`, {
-         
-            nom:el.nom,
-            prenom:el.prenom,
-            telephone:el.telephone
-        
+
+            nom: el.nom,
+            prenom: el.prenom,
+            telephone: el.telephone
+
 
         }).then((res) =>
             console.log(res.data))
-   
+        window.location.reload()
+
     }
 }
 export function patchPassUserToApi(el) {
+    console.log(el.motDePasse)
     return () => {
-       
+
         axios.patch(`http://localhost:5000/users/pass/${el._id}`, {
-            "motDePasse":el.motDePasse,
-          
+            motDePasse: el.motDePasse,
+
 
         }).then((res) =>
             console.log(res.data))

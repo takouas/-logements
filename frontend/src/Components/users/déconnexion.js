@@ -7,7 +7,7 @@ import './users.css';
 
 export default class Déconnexion extends Component {
     logout = () => {
-        window.localStorage.clear();
+        localStorage.clear();
         window.location.reload()
 
     }

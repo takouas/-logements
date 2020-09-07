@@ -101,7 +101,7 @@ class GestionnaireUsers extends Component {
                                                 fontSize: 15,
                                                 fontFamily: 'Cormorant Infant serif',
                                                 fontWeight: 'bold',
-                                                marginRight: '15px'
+                                            
                                             }} onClick={this.handleCancel}>
                                                 Annuler
                                     </Button>

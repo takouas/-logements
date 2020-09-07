@@ -37,15 +37,15 @@ class ListAnnoncesProp extends Component {
     render() {
         const publicite = this.props.stateAnnonces.filter(el => decoded && el.emailUsers === decoded.user.email)
         return (
-            <div>
+            <div style={{ backgroundColor: '#1F2833', paddingTop: '15px', marginTop: '15px' }}>
                 <AjoutAnnonces />
-                <div className='container-card-list'>
+                <div className='container-card-list' >
 
                     {
                         publicite.map(el => <Card
                             hoverable
-                            style={{ width: 340, marginBottom: 35, backgroundColor: 'whitesmoke' }}
-                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 250 }} />}
+                            style={{ width: 300, marginBottom: 35, backgroundColor: 'whitesmoke' }}
+                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 220 }} />}
 
                         >
 

@@ -1,28 +1,44 @@
 /*********************** Home guset *************************/
 .container-introduction{
-    background-color: #f1f5fa;
+    background-color: #1F2833;
+    padding: 35px;
 
 }
 .container-introduction-pargraphe{
-    font-size: 22px;
-    color: black;
+    font-size: 24px;
+    color: white;
 margin-bottom: 25px;
     text-align: center;
     font-weight:bold ;
 
 
 }
+.btn-cliquer-ici-guest{
+    background-color: #e00034 !important ;
+position: relative;
+    color: white;
+   padding: 20px;
+   margin-top: 5px;
+   border-radius: 15px;
+   width: 400px;
+font-size:25px ;
+
+}
 .container-home-annonces-footer{
-    margin-top: 50px;
+
+    padding-top: 50px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: #f1f5fa;
+ 
+
 }
 .container-card-list-guest{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+ 
+
  
 }
 
@@ -31,14 +47,29 @@ margin-bottom: 25px;
 }
 .container-home-annonces-section-barre-recherche-et-annonce{
     display: flex;
-    margin-top: 25px;
+
+    margin-bottom: 25px;
+    padding:40px 0 ;
+
+
+}
+.carousel-image{
+    width: 75%; 
+    height: 350px;
+
+  
 }
 
+.logo-footer{
+width:265px;
+height:155px
+}
 /***************** List Annonces *******************************/
 .container-card-list{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+
 }
 .vl {
     border-left: 6px solid #f1f5fa;
@@ -46,7 +77,7 @@ margin-bottom: 25px;
     margin-right:5px ;
   }
   .container-home-annonces-barre-recherche{
- 
+
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;  
@@ -89,12 +120,12 @@ a{
 }
 .page-list-annonces-propritaire-button-edite{
     color:#40a9ff;
-    zoom:1.5
+
 
 }
 .page-list-annonces-propritaire-button-delete{
     color: red;
-    zoom:1.5
+
 
 }
 .container-confirmation-supprimer{
@@ -118,3 +149,88 @@ padding-left: 250px;
     margin-top: 25px;
 }
 
+  
+/************************* containere + media*********************/
+  
+.section1-voir-plus-annonce-image{
+   height: 250px ;width: 450px
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    .carousel-image{
+        width: 100%; 
+        height: 20%;
+      
+    }
+    .logo-footer{
+        width:65px;
+        height:50px
+        }
+	.container-home-annonces-section-barre-recherche-et-annonce { 
+          width: 100%; 
+          
+        display: flex;
+        flex-flow: row wrap;
+	}
+
+    .container-card-list{ 
+		display: block; 
+	}
+	
+    .container-home-annonces-barre-recherche{
+
+        display: flex;
+        
+        flex-flow: row wrap;
+
+    }
+.containere-recherche-guest{
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 15px;
+    
+
+}	
+.btn-cliquer-ici-guest{
+   
+
+   width: 300px;
+font-size:20px ;
+
+}
+.container-home-annonces-footer{    display: flex;
+    flex-flow: row wrap; 
+    justify-content: space-evenly;
+ }
+.container-home-annonces-reseaux{
+    display: flex;
+    flex-flow: row wrap;  
+}
+
+.section-voir-plus-annonce{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap; 
+}
+.section1-voir-plus-annonce { 
+    display: flex;
+    flex-flow: row wrap; 
+    text-align: start;
+}
+.section1-voir-plus-annonce-image{
+  width:90% !important;
+  text-align: start;
+}
+.section2-voir-plus-annonce{
+    width:70% !important;
+    text-align: start;
+
+  }
+  .section3-voir-plus-annonce{
+    width:70% !important;
+    text-align: start;
+
+  }
+}

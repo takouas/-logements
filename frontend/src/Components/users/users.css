@@ -36,3 +36,12 @@ border-right-color: transparent!important;
     background-color: transparent;
 
 }
+.modifie-profile-pargraphe{
+    font-size:15px ;
+}
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+
+}

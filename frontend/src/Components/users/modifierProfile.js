@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './users.css';
 import { getUsersFromApi, patchPassUserToApi, patchProfileUserToApi, } from "../../api/usersApi"
 import jwt from 'jsonwebtoken';
 import { EditOutlined } from '@ant-design/icons';
@@ -42,39 +42,119 @@ class ModifierProfile extends Component {
 
 
                 <Tag
-                    style={{ width: 440, backgroundColor: "transparent", padding: "15px" }}
+                    style={{ width: 250, backgroundColor: "transparent" }}
 
                     visible={this.state.visibleInput}
                     onClose={() => this.setState({ visibleInput: false })}
                 >
-                    <Button style={{ backgroundColor: "transparent", borderColor: 'transparent', float: 'right' }} onClick={() => this.setState({ visibleInput: false })}>Fermer</Button><br /><br />
+                    <span>
+                        <EditOutlined />
+                        <Button style={{ backgroundColor: "transparent", borderColor: 'transparent', float: 'right' }} onClick={() => this.setState({ visibleInput: false })}>Fermer</Button> </span><br /><br />
 
-                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <div>   <p className="modifie-profile-pargraphe">Nom*  </p>
-                            <p className="modifie-profile-pargraphe">Prénom*   </p>
-                            <p className="modifie-profile-pargraphe">Numéro de téléphone *</p>   </div>
+                    <div >
+                        <div>
+                        </div>
 
                         <div>
-                            <Input defaultValue={this.state.nom} style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} />
+
+                            <p className="modifie-profile-pargraphe">Nom*  </p>
+                            <Input defaultValue={this.state.nom} style={{ width: "220px" }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} />
+
                             <br />
-                            <Input defaultValue={this.state.prenom} style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }}
+                            <p className="modifie-profile-pargraphe">Prénom*   </p>
+                            <Input defaultValue={this.state.prenom} style={{ width: "220px" }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }}
                             />
                             <br />
-                            <Input defaultValue={this.state.telephone} type="tel" style={{ width: 140, borderColor: "transparent", borderBottomColor: 'black' }} pattern="\d*" placeholder="numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
+
+                            <p className="modifie-profile-pargraphe">Numéro de téléphone *</p>
+                            <Input defaultValue={this.state.telephone} type="tel" style={{ width: "220px", }} pattern="\d*" placeholder="numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
                         </div>
-                        <EditOutlined />
+
                     </div>
 
-
-                    <Button onClick={() => this.props.patchProfileUserToApi({
-                        _id:this.state._id,
+                    <br />
+                    <Button style={{ float: 'right', marginBottom: '15px' }} onClick={() => this.props.patchProfileUserToApi({
+                        _id: this.state._id,
                         nom: this.state.nom,
                         prenom: this.state.prenom,
                         telephone: this.state.telephone,
 
 
                     })} >Enregistrer</Button>
+
                 </Tag>
+                <br />
+                <Button style={{ borderColor: "transparent", }} onClick={() => this.setState({ showInputPass: !this.state.showInputPass })} closable>Changer le mot de passe </Button>
+                <Tag
+                    style={{ width: 250, backgroundColor: "transparent" }}
+
+                    visible={this.state.showInputPass}
+                    onClose={() => this.setState({ showInputPass: false })}
+                >
+                    <Button style={{ backgroundColor: "transparent", borderColor: 'transparent', float: 'right' }} onClick={() => this.setState({ showInputPass: false })}  >Fermer</Button><br /><br />
+                    <p className="modifie-profile-pargraphe">Nos mots de passe doivent <br />comprendre au moins 6 caractères </p>
+                    <div >
+
+                        <div>
+
+                            <br />
+                           
+                                    <Form>
+                            <Form.Item
+                                name="password"
+                                label="Tapez le nouveau mot de passe : "
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please input your password!"
+                                    }
+                                ]}
+                                hasFeedback
+                            >
+                                <Input.Password />
+                            </Form.Item>
+
+                            <Form.Item
+                                name="confirm"
+                                label=" Confirmez le nouveau mot de passe :"
+                                dependencies={["password"]}
+                                hasFeedback
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Please confirm your password!"
+                                    },
+                                    ({ getFieldValue }) => ({
+                                        validator(rule, value) {
+                                            if (!value || getFieldValue("password") === value) {
+                                                return Promise.resolve();
+                                            }
+
+                                            return Promise.reject(
+                                                "The two passwords that you entered do not match!"
+                                            );
+                                        }
+                                    })
+                                ]}
+                            >
+                                <Input.Password   onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
+                            </Form.Item>
+                            </Form>
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <Button style={{ float: 'right', marginBottom: '15px' }}
+                        onClick={() => this.props.patchPassUserToApi({
+                            _id: this.state._id,
+                            motDePasse: this.state.motDePasse
+
+
+                        })}>Enregistrer</Button>
+
+                </Tag>
+                <hr></hr>
             </div>
         )
     }

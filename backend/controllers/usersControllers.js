@@ -1,5 +1,5 @@
 const UsersModal = require('../model/usersModal')
-
+const bcrypt = require('bcryptjs')
 exports.getUsers = (async (req, res) => {
 
     res.send(await UsersModal.find())
@@ -14,5 +14,13 @@ exports.patchProfileUsers = async (req, res) => {
 }
 
 exports.patchPassUsers = async (req, res) => {
-    res.send(await UsersModal.updateOne({ _id: req.params.id }, { $set: { motDePasse: req.body.motDePasse } }))
+    
+    res.send(await UsersModal.updateOne({ _id: req.params.id }, {
+        $set: {
+            motDePasse: bcrypt.hashSync(req.body.motDePasse, await bcrypt.genSalt(10))
+        }
+    })
+    )
+
+
 }

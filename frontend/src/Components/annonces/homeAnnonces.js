@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getAnnonceFromApi } from "../../api/annoncesApi"
 import ListAnnonces from './listAnnonces';
 
-
+import prix from '../../ressource/prix'
 import gouvernorat from '../../ressource/gouvernorat'
 import TypeDeBien from '../../ressource/typeDeBien'
 import { Modal, Button, Form, Input, Checkbox, Select, Tooltip, Pagination } from 'antd';
@@ -36,18 +36,18 @@ class HomeAnnonces extends Component {
 
 
     render() {
-
+  
         return (
 
             <div className="container-home-annonces">
                 <br />
 
                 <div className='container-home-annonces-section-barre-recherche-et-annonce'>
-                    <td style={{ backgroundColor: '', marginRight: '5px' }} >
-                        <h3>Filtre de recherche :</h3>
+                    <td style={{ backgroundColor: '#1F2833', marginRight: '5px' }} className='containere-recherche-guest' >
+                        <h3 style={{ color: 'white' }}>Filtre de recherche :</h3>
 
 
-                        <div className="">
+                        <div className='containere-recherche-guest'>
                             <div>
                                 <Form.Item  >
                                     <Select name="typeDeBien"
@@ -60,18 +60,21 @@ class HomeAnnonces extends Component {
 
                             </div>
 
-                            <div> <Search name="prix"
-                                placeholder="prix en dinar" onChange={(e) => { this.setState({ searchPrix: e.target.value }) }}
+                            <div>
+                                <Form.Item  >
+                                    <Select name="prix " onClick={this.nouveau}
+                                        placeholder="Prix en dinar" onChange={(value) => { this.setState({ searchPrix: value }) }}
 
-                                style={{ width: 200 }}
-                            />
-
+                                        style={{ width: 200, }} allowClear>
+                                        {prix.map(el => <Option value={el.value}>{el.contenue}</Option>)}
+                                    </Select>
+                                </Form.Item>
                             </div>
-                            <br />
+
 
                             <div>
                                 <Form.Item  >
-                                    <Select placeholder="gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }} allowClear>
+                                    <Select placeholder="Gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }} allowClear>
                                         {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
                                     </Select>
                                 </Form.Item>
@@ -87,6 +90,19 @@ class HomeAnnonces extends Component {
                                 </Form.Item>
 
                             </div>
+                            <div >
+                            <Form.Item  
+                            >
+                                <Select placeholder="Nombre de personne " style={{ width:200  }} name="personne" onChange={(value) => { this.setState({ searchNombrePersonne: value }) }} allowClear >
+                                   <Option value="1">  1 personne  </Option>
+                                   <Option value="2"> plus de 2 personnes </Option>
+                            
+                                   <Option value="plus">  plus de 4 personnes  </Option>
+                                </Select>
+                            </Form.Item>
+
+                        </div>
+                     
 
                         </div>
                     </td>
@@ -94,20 +110,22 @@ class HomeAnnonces extends Component {
 
 
 
-                    <div class="vl"></div>
+
                     <div>
 
                         <div className='container-card-list'>
-
-                            {this.props.stateAnnonces.filter(el => {
+                 
+                        
+                            {      this.props.stateAnnonces.filter(el => {
                                 if (this.state.searchTypeDeBien) {
                                     return el.typeDeBien.includes(this.state.searchTypeDeBien)
                                 } else {
                                     return el
                                 }
                             }).filter(el => {
+
                                 if (this.state.searchPrix) {
-                                    return el.prix.includes(this.state.searchPrix)
+                                    return el.prix <= Number(this.state.searchPrix);
                                 } else {
                                     return el
                                 }
@@ -121,6 +139,21 @@ class HomeAnnonces extends Component {
                                 if (this.state.searchPeriode) {
                                     return el.periode.includes(this.state.searchPeriode)
                                 } else {
+                                    return el
+                                }
+                            }).filter(el => {
+
+                                if (this.state.searchNombrePersonne == 'plus') {
+                                    return Number(el.nombreDePersonne )> 4
+                                }
+                                else if (this.state.searchNombrePersonne == 1) {
+                                    return Number(el.nombreDePersonne ) ==1
+                                }
+                                else if (this.state.searchNombrePersonne == 2) {
+                                    return Number(el.nombreDePersonne )> 2
+                                }
+
+                                else {
                                     return el
                                 }
                             }).filter((el, i) =>

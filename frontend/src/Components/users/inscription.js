@@ -8,9 +8,7 @@ import './users.css';
 import { connect } from 'react-redux';
 
 
-const onFinish = values => {
-    console.log('Received values of form: ', values);
-};
+
 
 const { Option } = Select;
 
@@ -28,7 +26,9 @@ class Inscription extends Component {
         visible: false,
 
     };
-
+    onFinish = values => {
+        console.log('Received values of form: ', values);
+    };
     showModal = () => {
         this.setState({
             visible: true,
@@ -41,7 +41,8 @@ class Inscription extends Component {
         this.setState({ visible: false });
     };
     submit = (e) => {
-
+        console.log("kamel", this.state)
+        this.onFinish()
         this.props.postUsersToApi({
             nom: this.state.nom,
             prenom: this.state.prenom,
@@ -79,32 +80,36 @@ class Inscription extends Component {
                 >
                     <div >
                         <Form
+                            onFinish={
+                                this.submit
+                            }
                             name="normal_login"
 
                             initialValues={{
                                 remember: true,
                             }}
 
-                            onFinish={onFinish}
+
                         >
                             <div className="container-inscription-nom-prenom-tél-role">
                                 <span> <p>* Nom :</p>
                                     <Form.Item name='nom' rules={[{
                                         required: true,
-                                        message: 'SVP entrer votre  ! ',
+                                        message: 'SVP entrer votre  nom ! ',
                                     }]}  >
                                         <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
                                             },
-                                        ]} /> </Form.Item></span>
+                                        ]} />
+                                    </Form.Item></span>
                                 <span> <p>* Prénom :</p>
-                                    <Form.Item name='prénom' rules={[{
+                                    <Form.Item name='Prenom' rules={[{
                                         required: true,
-                                        message: 'SVP entrer votre  ! ',
+                                        message: 'SVP entrer votre  prenom ! ',
                                     }]}  >
-                                        <Input style={{ width: 200 }} placeholder="Prénom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
+                                        <Input style={{ width: 200 }} placeholder="prenom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
@@ -114,35 +119,33 @@ class Inscription extends Component {
                             </div>
 
 
-
-
-                            <Form.Item name={['user', 'email']} rules={[{
-                                type: 'email', required: true,
-                                message: 'SVP entrer votre adresse email ! ',
-                            }]}  >* E-mail
-                                <Input placeholder="E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} />
+                            <Form.Item name='EMAIL' rules={[{
+                                type: "email",
+                                required: true,
+                                message: 'SVP entrer votre  email ! ',
+                            }]}  >
+                                <Input placeholder="email" onChange={(e) => { this.setState({ email: e.target.value }) }} rules={[
+                                    {
+                                        type: "email",
+                                        required: true,
+                                        message: '!',
+                                    },
+                                ]} />
                             </Form.Item>
 
-
-                            <Form.Item
-                                name="password"
-                                rules={[
+                            <Form.Item name='SALHH' rules={[{
+                                required: true,
+                                message: 'SVP entrer votre  nom  mot de Passe! ',
+                            }]}  >
+                                <Input.Password placeholder="mot De Passe " onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} rules={[
                                     {
                                         required: true,
                                         message: '!',
                                     },
-                                ]}
-                            > * Mot de passe
-                                <Input.Password
-
-                                    placeholder="mot de passe" iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                                    onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} rules={[
-                                        {
-                                            required: true,
-                                            message: '!',
-                                        },
-                                    ]} />
+                                ]} />
                             </Form.Item>
+
+
 
 
 
@@ -178,6 +181,7 @@ class Inscription extends Component {
                                             },
                                         ]} />
                                     </Form.Item>
+
                                 </span>
 
 
@@ -186,17 +190,15 @@ class Inscription extends Component {
 
                             <Form.Item name=''>
                                 <p>* Champ obligatoire</p>
-                                <Button className='button-connecxion-inscription' htmlType="submit" style={{
+                                <input className='button-connecxion-inscription' type="submit" style={{
                                     fontSize: 15,
                                     fontFamily: 'Cormorant Infant serif',
                                     fontWeight: 'bold', backgroundColor: '#e00034', color: '#fff'
                                 }}
-                                    onClicK={
-                                        this.submit
-                                    }
-                                >
-                                    Inscription
-        </Button>
+                                    value="Inscription"
+                                />
+
+
 
 
                             </Form.Item>

@@ -1,18 +1,20 @@
 .navbar-logo-bity{
    width:100px ;
    height: 80px;
-   margin-top: 25px;
+
 }
 .container-nav{
    display: flex;
    flex-flow: row wrap;
    justify-content: space-between;
-   margin-left: 55px;
-   margin-right: 55px;
+   padding-left: 55px;
+padding-right: 55px;
+box-shadow: 0 0 10px black;
+
 
 }
 .container-nav-button-users{
-margin-top: 40px;
+margin-top: 20px;
 margin-bottom: 40px;
 
 }
@@ -30,9 +32,37 @@ margin-bottom: 40px;
    font-weight: bold;
 }
 .container-nav-button-users-profile{
-   margin-top:60px ;
+   margin-top:20px ;
    border-color: black !important;
    border-right-color: transparent!important;
    border-left-color: transparent !important;
    width: 100px; 
+}
+.container-dashbord{
+   display: flex;
+   flex-flow: row wrap;
+}
+/* .my-drawer {
+   width:540px 
+} */
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+.ant-drawer-wrapper-body{
+   width:  400px!important; 
+   padding: 0 10px !important; 
+
+
+}
+
+  .ant-drawer-body{
+   width: 400px!important;
+   padding: 0!important; 
+
+  }
+  .ant-drawer-content{
+   padding: 0!important; 
+  }
+
 }
