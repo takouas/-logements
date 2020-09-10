@@ -63,11 +63,12 @@ export function patchProfileUserToApi(el) {
     }
 }
 export function patchPassUserToApi(el) {
-    console.log(el.motDePasse)
+    console.log(el.nouveauMotDePasse)
     return () => {
 
         axios.patch(`http://localhost:5000/users/pass/${el._id}`, {
             motDePasse: el.motDePasse,
+            nouveauMotDePasse: el.nouveauMotDePasse,
 
 
         }).then((res) =>

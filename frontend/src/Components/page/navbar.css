@@ -1,18 +1,9 @@
 .navbar-logo-bity{
-   width:100px ;
-   height: 80px;
+   width:70px ;
+   height: 50px;
 
 }
-.container-nav{
-   display: flex;
-   flex-flow: row wrap;
-   justify-content: space-between;
-   padding-left: 55px;
-padding-right: 55px;
-box-shadow: 0 0 10px black;
 
-
-}
 .container-nav-button-users{
 margin-top: 20px;
 margin-bottom: 40px;
@@ -33,9 +24,10 @@ margin-bottom: 40px;
 }
 .container-nav-button-users-profile{
    margin-top:20px ;
-   border-color: black !important;
-   border-right-color: transparent!important;
-   border-left-color: transparent !important;
+   font-size:15px ;
+   font-weight: bold;
+   border-color: transparent!important;
+   font-family: 'Cormorant Infant serif';
    width: 100px; 
 }
 .container-dashbord{

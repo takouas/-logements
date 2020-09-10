@@ -50,25 +50,8 @@ class Connection extends Component {
     const { visible, loading } = this.state;
     return (
       <>
-        <Button className="container-nav-button-users-connection" onClick={this.showModal} style={{
-          fontSize: 15,
-          fontFamily: 'Cormorant Infant serif',
-          fontWeight: 'bold',
-        }}>
-          Connexion
-        </Button>
-        <Modal
-          visible={visible}
-          title="Connexion"
-          onCancel={this.handleCancel}
-          footer={false}
-          style={{
-            fontSize: 15,
-            fontFamily: 'Cormorant Infant serif',
-            fontWeight: 'bold',
-            backgroundColor: '#e00034'
-          }}
-        >
+       
+    
           <div style={{
             fontSize: 15,
             fontFamily: 'Cormorant Infant serif',
@@ -149,7 +132,7 @@ class Connection extends Component {
 
 
           </div>
-        </Modal>
+      
       </>
     );
   }

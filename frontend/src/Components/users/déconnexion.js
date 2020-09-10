@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Modal, Button, Form, Input, Checkbox, Alert } from 'antd';
 import './users.css';
-
-
+import HomeGuest from '../annonces/homeGuest' 
+import { BrowserRouter, Route, Link, Switch, Redirect, } from "react-router-dom";
 
 
 export default class Déconnexion extends Component {
@@ -15,11 +15,14 @@ export default class Déconnexion extends Component {
 
 
     render() {
-        
+
         return (
             <div className='container-page-déconnexion'>
-            
-                <Button className="btn-déconnexion" onClick={this.logout} >Déconnexion</Button>
+                <form action='' onClick={this.logout} >
+                <Link to="/"> Déconnexion</Link>
+                 
+                
+                </form>
             </div>
         )
     }

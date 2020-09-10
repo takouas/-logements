@@ -17,8 +17,9 @@ class ModifierProfile extends Component {
         nom: this.props.el.nom,
         prenom: this.props.el.prenom,
 
-
+     
         telephone: this.props.el.telephone,
+
         visible: false,
 
 
@@ -29,7 +30,7 @@ class ModifierProfile extends Component {
 
 
     render() {
-        console.log(this.props.el)
+        console.log(this.state.nouveauMotDePasse)
         return (
             <div>
 
@@ -98,47 +99,52 @@ class ModifierProfile extends Component {
                         <div>
 
                             <br />
-                           
-                                    <Form>
-                            <Form.Item
-                                name="password"
-                                label="Tapez le nouveau mot de passe : "
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please input your password!"
-                                    }
-                                ]}
-                                hasFeedback
-                            >
-                                <Input.Password />
-                            </Form.Item>
 
-                            <Form.Item
-                                name="confirm"
-                                label=" Confirmez le nouveau mot de passe :"
-                                dependencies={["password"]}
-                                hasFeedback
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: "Please confirm your password!"
-                                    },
-                                    ({ getFieldValue }) => ({
-                                        validator(rule, value) {
-                                            if (!value || getFieldValue("password") === value) {
-                                                return Promise.resolve();
-                                            }
+                            <Form>
+                                <Form.Item>
+                                    <Input style={{ width: "220px" }} placeholder="ancienne mot de passe" onChange={(e) => { this.setState({ motDePasse: e.target.value }) }}
+                                    />
 
-                                            return Promise.reject(
-                                                "The two passwords that you entered do not match!"
-                                            );
+                                </Form.Item>
+                                <Form.Item
+                                    name="password"
+                                    label="Tapez le nouveau mot de passe : "
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please input your password!"
                                         }
-                                    })
-                                ]}
-                            >
-                                <Input.Password   onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} />
-                            </Form.Item>
+                                    ]}
+                                    hasFeedback
+                                >
+                                    <Input.Password />
+                                </Form.Item>
+
+                                <Form.Item
+                                    name="confirm"
+                                    label=" Confirmez le nouveau mot de passe :"
+                                    dependencies={["password"]}
+                                    hasFeedback
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "Please confirm your password!"
+                                        },
+                                        ({ getFieldValue }) => ({
+                                            validator(rule, value) {
+                                                if (!value || getFieldValue("password") === value) {
+                                                    return Promise.resolve();
+                                                }
+
+                                                return Promise.reject(
+                                                    "The two passwords that you entered do not match!"
+                                                );
+                                            }
+                                        })
+                                    ]}
+                                >
+                                    <Input.Password onChange={(e) => { this.setState({ nouveauMotDePasse: e.target.value }) }} />
+                                </Form.Item>
                             </Form>
                         </div>
 
@@ -148,8 +154,8 @@ class ModifierProfile extends Component {
                     <Button style={{ float: 'right', marginBottom: '15px' }}
                         onClick={() => this.props.patchPassUserToApi({
                             _id: this.state._id,
+                            nouveauMotDePasse: this.state.nouveauMotDePasse,
                             motDePasse: this.state.motDePasse
-
 
                         })}>Enregistrer</Button>
 

@@ -29,17 +29,9 @@ class Inscription extends Component {
     onFinish = values => {
         console.log('Received values of form: ', values);
     };
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
-    };
+ 
 
 
-
-    handleCancel = () => {
-        this.setState({ visible: false });
-    };
     submit = (e) => {
         console.log("kamel", this.state)
         this.onFinish()
@@ -59,25 +51,7 @@ class Inscription extends Component {
         const { visible } = this.state;
         return (
             <>
-                <Button className="container-nav-button-users-regestir" onClick={this.showModal} style={{
-                    fontSize: 15,
-                    fontFamily: 'Cormorant Infant serif',
-                    fontWeight: 'bold'
-                }}>
-                    Inscription
-        </Button>
-                <Modal
-                    visible={visible}
-                    title="Inscription"
-
-                    onCancel={this.handleCancel}
-                    footer={false} style={{
-                        fontSize: 15,
-                        fontFamily: 'Cormorant Infant serif',
-                        fontWeight: 'bold',
-                        backgroundColor: '#e00034'
-                    }}
-                >
+         
                     <div >
                         <Form
                             onFinish={
@@ -207,7 +181,7 @@ class Inscription extends Component {
 
 
                     </div>
-                </Modal>
+            
             </>
         );
     }

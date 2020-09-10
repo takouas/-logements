@@ -7,6 +7,7 @@
     flex-flow: row wrap; */
 }
 
+
 body{
     background-image: url();
 
@@ -20,4 +21,3 @@ p,h2,h3,span,h4,h5{
 ::placeholder {
     color: grey !important;
   }
- 

@@ -54,21 +54,7 @@ class Dashboard extends Component {
         return (
             <>
 
-                <Button className="container-nav-button-users-profile" onClick={this.showDrawer}>
-                    Profile
-        </Button>
-                <Drawer
-                    className="my-drawer"
-                    title={false}
-                    width={300}
-                    onClose={this.onClose}
-                    visible={this.state.visible}
-                    bodyStyle={{ paddingBottom: 80 }}
-                    footer={
-                        false
-                    }
-                >
-
+    
                     {user.map(el => <div>
                         <div><p className="modifie-profile-pargraphe">   Nom :{el.nom}</p>
                             <p className="modifie-profile-pargraphe">   Prénom :{el.prenom}</p>
@@ -83,10 +69,10 @@ class Dashboard extends Component {
                             <br />
 
 
-                            <Déconnexion />
+                    
                         </div> </div>)}
 
-                </Drawer>
+             
 
             </>
         );

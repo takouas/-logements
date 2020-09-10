@@ -37,7 +37,7 @@ class HomeGuest extends Component {
 
     state = {
         page:1,
-         pageSize:4
+         pageSize:3
 
     }
     componentDidMount() {
@@ -88,7 +88,7 @@ class HomeGuest extends Component {
                         </div>
                        
                  <div  id='card-list' className='container-home-annonces-section-barre-recherche-et-annonce'>
-                    <td  className='containere-recherche-guest' >
+                    <td  className='containere-recherche-guest' style={{marginRight:'15PX '}} >
                  <h3>Filtre de recherche :</h3>
                  <div className='containere-recherche-guest'>
                            <div  >
@@ -193,21 +193,20 @@ class HomeGuest extends Component {
                         <Card
                         onClick={() => openNotificationWithIcon('info')}
                             hoverable 
-                            style={{ width: 250 ,   marginRight:'5px',marginBottom:'15px'}}
-                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 150 }} />}
+                            style={{ width: 320 ,   marginRight:'10px',marginBottom:'15px',borderRadius:'25px'}}
+                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 200 ,borderRadius:'25px 25px 0 0'}} />}
                         >
 
-                            <div> <p>{el.gouvernorat}</p>
-                                <p>{el.prix} DT {el.periode}</p>
-
-                                <p>{el.typeDeBien}</p>
+                            <div style={{fontSize:'10px'}}> <p>{el.gouvernorat}<br/>
+                                {el.prix} DT {el.periode}<br/>
+                                {el.typeDeBien}</p>
                             </div>
 
                         </Card>
                     
                     )}
                     </div>
-                      <center> <Pagination  defaultCurrent={1}pageSize={4} showSizeChanger={false}total={this.props.stateAnnonces.length} onChange={this.paginate}/></center>
+                      <center> <Pagination  defaultCurrent={1}pageSize={3} showSizeChanger={false}total={this.props.stateAnnonces.length} onChange={this.paginate}/></center>
 
 </div>
                 </div>
