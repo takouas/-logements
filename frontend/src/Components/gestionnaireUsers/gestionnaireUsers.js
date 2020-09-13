@@ -53,7 +53,7 @@ class GestionnaireUsers extends Component {
             <div className='container-page-admin'>
 
                 <center>
-                    <div><Search placeholder="Nom" name="nom" style={{ width: 600, marginBottom: 15, marginTop: 55 }} onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
+                    <div><Search placeholder="Nom" name="nom"  className='container-page-admin-search' onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
               
                 </center>
                 <table> 

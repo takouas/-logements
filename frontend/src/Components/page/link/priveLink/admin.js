@@ -25,89 +25,89 @@ export default class Admin extends Component {
     };
 
     render() {
+        const menu2 = (
+            <Menu>
+
+                <Menu.Item key="0">    <Link to="/GestionnaireUsers" style={{
+                    paddingRight: '15px', color: 'black', fontSize: 15,
+                    fontFamily: 'Cormorant Infant serif',
+                    fontWeight: 'bold'
+                }}> Utilisateurs</Link>
+
+                </Menu.Item>
+                <Menu.Item key="1">    <Link to="/GestionnaireAnnonces" style={{
+                    paddingRight: '15px', color: 'black', fontSize: 15,
+                    fontFamily: 'Cormorant Infant serif',
+                    fontWeight: 'bold'
+                }}>Annonces</Link>      </Menu.Item>
+
+                <Menu.Item key="2">
+                    <Link to="/Dashboard" style={{
+                        color: 'black', fontSize: '15px',
+                        fontFamily: 'Cormorant Infant serif',
+                        fontWeight: 'bold'
+                    }}>Profile</Link>
+
+                </Menu.Item>
+
+                <Menu.Item key="3">        <Déconnexion /></Menu.Item>
+            </Menu>
+        );
         const menu = (
             <Menu>
                 <Menu.Item key="0">
-                <Link to="/Dashboard" style={{
-                               color: 'black', fontSize: '15px',
-                                fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold'
-                            }}>Profile</Link>
+                    <Link to="/Dashboard" style={{
+                        color: 'black', fontSize: '15px',
+                        fontFamily: 'Cormorant Infant serif',
+                        fontWeight: 'bold'
+                    }}>Profile</Link>
 
                 </Menu.Item>
-               
+
                 <Menu.Item key="3">        <Déconnexion /></Menu.Item>
             </Menu>
         );
 
         return (
             <div>
-              
-                    <div className="menuCon">
-                        <div className="leftMenu">
-                            <Link to="/GestionnaireUsers" style={{
-                                paddingRight: '15px', color: 'black', fontSize: 15,
-                                fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold'
-                            }}> Utilisateurs</Link>
-                        </div>
-                        <div className="leftMenu">
-                            <Link to="/GestionnaireAnnonces" style={{
-                                paddingRight: '15px', color: 'black', fontSize: 15,
-                                fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold'
-                            }}>Annonces</Link>
-                        </div>
-                        <div className="rightMenu">
 
-                           
-
-
-                            <Dropdown overlay={menu} trigger={['click']}>
-                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                    <UserOutlined style={{zoom:'1.5'}}/>
-                                </a>
-                            </Dropdown>
-
-                        </div>
-                        <Button className="barsMenu" type="primary" onClick={this.showDrawer}>
-                            <span className="barsBtn"></span>
-                        </Button>
-                        <Drawer
-                            title={false}
-                            placement="right"
-                            closable={false}
-                            onClose={this.onClose}
-                            visible={this.state.visible}
-                        >
-                            <Button onClick={this.onClose} style={{ marginRight: 8 }}>
-                                <CloseOutlined />
-                            </Button>
-                            <div>  <Link to="/GestionnaireAnnonces" style={{
-                                paddingRight: '15px', color: 'black', fontSize: 15,
-                                fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold'
-                            }}>Annonces</Link></div>
-                            <div>
-                                <Link to="/GestionnaireUsers" style={{
-                                    paddingRight: '15px', color: 'black', fontSize: 15,
-                                    fontFamily: 'Cormorant Infant serif',
-                                    fontWeight: 'bold'
-                                }}> Utilisateurs</Link>
-                            </div>
+                <div className="menuCon">
+                    <div className="leftMenu">
+                        <Link to="/GestionnaireUsers" style={{
+                            paddingRight: '15px', color: 'black', fontSize: 15,
+                            fontFamily: 'Cormorant Infant serif',
+                            fontWeight: 'bold'
+                        }}> Utilisateurs</Link>
+                    </div>
+                    <div className="leftMenu">
+                        <Link to="/GestionnaireAnnonces" style={{
+                            paddingRight: '15px', color: 'black', fontSize: 15,
+                            fontFamily: 'Cormorant Infant serif',
+                            fontWeight: 'bold'
+                        }}>Annonces</Link>
+                    </div>
+                    <div className="rightMenu">
 
 
 
-                            <Link to="/Dashboard" style={{
-                                paddingRight: '15px', color: 'black', fontSize: 15,
-                                fontFamily: 'Cormorant Infant serif',
-                                fontWeight: 'bold'
-                            }}> profile</Link>
-                             <Déconnexion />
-                        </Drawer>
+
+                        <Dropdown overlay={menu} trigger={['click']}>
+                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <UserOutlined style={{ zoom: '1.5' }} />
+                            </a>
+                        </Dropdown>
 
                     </div>
-            
+
+                    <Dropdown className="barsMenu" overlay={menu2} trigger={['click']}>
+                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                            <span className="barsBtn"></span>
+                        </a>
+                    </Dropdown>
+
+
+                </div>
+
 
             </div>
         )

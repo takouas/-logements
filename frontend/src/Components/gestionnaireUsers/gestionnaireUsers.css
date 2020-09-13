@@ -10,7 +10,15 @@ table {
 	margin:50px auto;
 
 	}
+.container-page-admin-search{
 
+width: 600px;
+margin-bottom: 15px;
+margin-top: 55px
+
+
+
+}
 
 
 td, th { 
@@ -37,6 +45,11 @@ and also iPads specifically.
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+	.container-page-admin-search{
+		width: 70%;
+	}
+
 	.container-confirmation-supprimer{
 padding-left: 0px ;
 	}

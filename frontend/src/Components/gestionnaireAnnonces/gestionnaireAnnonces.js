@@ -18,7 +18,7 @@ class GestionnaireAnnonces extends Component {
 
     state = {
         page: 1,
-        pageSize: 10,
+        pageSize: 6,
         k: []
     }
 
@@ -68,8 +68,8 @@ class GestionnaireAnnonces extends Component {
                             <Card
 
                                 hoverable
-                                style={{ width: 220, marginRight: '10px', marginBottom: '15px', borderRadius: '25px' }}
-                                cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 100, borderRadius: '25px 25px 0 0' }} />}
+                                style={{ width: 300, marginRight: '10px', marginBottom: '15px', borderRadius: '25px' }}
+                                cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 200, borderRadius: '25px 25px 0 0' }} />}
                             >
                                 <p>{el.emailUsers}</p>
                                 <div style={{ fontSize: '10px' }}> <p>{el.gouvernorat}<br />
@@ -126,7 +126,7 @@ class GestionnaireAnnonces extends Component {
                 </div>
 
 
-                <center> <Pagination defaultCurrent={1} pageSize={10} showSizeChanger={false} total={this.props.stateUsers.length} onChange={this.paginate} /></center>
+                <center> <Pagination defaultCurrent={1} pageSize={6} showSizeChanger={false} total={this.props.stateUsers.length} onChange={this.paginate} /></center>
             </div>
         )
     }

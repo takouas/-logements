@@ -23,38 +23,28 @@ const Home = () => {
     if (decoded.user !== undefined) {
       var user = decoded.user.role
 
+
+      if (user == "admin") {
+        return <Admin />
+      }
+      else if (user == "propriétaire") {
+        return <Proprietaire />
+      }
+      else if (user == "client") {
+        return <Client />
+      }
     }
-    else {
-      var user = "guest"
-    }
-  }
 
-
-
-
-
-  if (user == "admin") {
-    return <Admin />
-
-
-
-  }
-  else if (user == "propriétaire") {
-    return <Proprietaire />
-  }
-  else if (user == "client") {
-    return <Client/>
   }
 
   else {
-
-
-
+    var user = "guest"
     return <PublicLink />
-
   }
 
- 
+
+
+
 
 }
 export default Home;

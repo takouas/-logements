@@ -76,39 +76,44 @@ class HomeGuest extends Component {
 
 
                     </center>
-                    <br/>
+                    <br />
                     <div className="containr-section-after-carousel">
                         <Card >
 
 
-                            <h3 style={{ fontWeight: 'bold', fontSize: '25px'}}  > Spécialiste du logement étudiant et jeune actif</h3>
+                            <h3 style={{ fontWeight: 'bold', fontSize: '25px' }}  > Spécialiste du logement étudiant et jeune actif</h3>
 
-                            <p >Se loger durant ses études n’est pas toujours mission facile, <br />c’est pourquoi Bity aide les étudiants et les  jeunes actifs <br /> à se loger en proposant  un vaste choix de logement<br /> étudiant dans toute la tunisie : studio , colocation , appartement <br />, résidence étudiante , chambre étudiante ... </p>
-                            <p style={{ fontWeight: 'bold', fontSize: '25px'}}>   Vous recherchez un logement ?</p>
-                            <div style={{border:'2px solid rgb(224, 0, 52)',width:'200px',padding:'10px',borderRadius:'15px',float:'right'}}>
-                          
-                            <a title="" href="#card-list">    <img src={logment} style={{ width: '50px' }}></img>  voir annonces  </a>
+                            <p >Se loger durant ses études n’est pas toujours mission facile, c’est pourquoi Bity aide les étudiants<br /> et les  jeunes actifs  à se loger en proposant  un vaste choix de logement étudiant dans toute <br />la tunisie : studio , colocation , appartement , résidence étudiante , chambre étudiante ... </p>
+                            <p style={{ fontWeight: 'bold', fontSize: '25px' }}>   Vous recherchez un logement ?</p>
+                            <div style={{ border: '2px solid rgb(224, 0, 52)', width: '200px', padding: '10px', borderRadius: '15px', float: 'right' }}>
+                                <a title="" href="#card-list">    <img src={logment} style={{ width: '50px' }}></img>  voir annonces  </a>
                             </div>
                         </Card>
-                     
+
                         <Card>
 
 
 
 
-                            <h3 style={{ fontWeight: 'bold', fontSize: '25px' }}    >Vous êtes propriétaire ? <br /> <span >Louez votre logement en tout simplicité !</span>
+                            <h3 style={{ fontWeight: 'bold', fontSize: '25px' }}    >Vous êtes propriétaire ?
                             </h3>
                             <p >Déposez gratuitement votre annonce</p>
                             <p>Vous avez un bien immobilier à  louer ?</p>
-                            <div style={{border:'2px solid rgb(224, 0, 52)',width:'200px',padding:'10px',borderRadius:'15px',float:'right'}}>
 
-                
+
+
+                            <h3 style={{ fontWeight: 'bold', fontSize: '25px' }}>    Louez votre logement en tout simplicité !
+                            </h3>
+                            <br />
+                            <div style={{ border: '2px solid rgb(224, 0, 52)', width: '200px', padding: '10px', borderRadius: '15px', float: 'right' }}>
+
+
                                 <a onClick={() => openNotificationWithIcon('info')}>   <img style={{ width: '50px' }} src={annonce}></img>  Publiez-le-ici</a>
                             </div>
 
-                            </Card>
+                        </Card>
                     </div>
-                    <br/>
+                    <br />
                     <div className="container-introduction">
                         <h3 className="container-introduction-pargraphe" >
                             Bity vous propose plusieurs choix  d'hébergements  spécialement pour vous  les étudiants <br /> Vous cherchez un logement  ? <br />Bienvenue sur Bity
@@ -116,7 +121,7 @@ class HomeGuest extends Component {
                 </h3>
 
                     </div>
-                 
+
                     <div id='card-list' className='container-home-annonces-section-barre-recherche-et-annonce'>
                         <td className='containere-recherche-guest' style={{ marginRight: '15PX ' }} >
                             <h3>Filtre de recherche :</h3>
