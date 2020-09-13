@@ -66,24 +66,24 @@ class Inscription extends Component {
 
                         >
                             <div className="container-inscription-nom-prenom-tél-role">
-                                <span> <p>* Nom :</p>
-                                    <Form.Item name='nom' rules={[{
+                                <span> 
+                                    <Form.Item name='Nom' rules={[{
                                         required: true,
                                         message: 'SVP entrer votre  nom ! ',
                                     }]}  >
-                                        <Input style={{ width: 200 }} placeholder="Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
+                                        <Input style={{ width: 200 }} placeholder="* Nom" onChange={(e) => { this.setState({ nom: e.target.value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
                                             },
                                         ]} />
                                     </Form.Item></span>
-                                <span> <p>* Prénom :</p>
+                                <span> 
                                     <Form.Item name='Prenom' rules={[{
                                         required: true,
                                         message: 'SVP entrer votre  prenom ! ',
                                     }]}  >
-                                        <Input style={{ width: 200 }} placeholder="prenom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
+                                        <Input style={{ width: 200 }} placeholder="* Prenom" onChange={(e) => { this.setState({ prenom: e.target.value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
@@ -97,8 +97,9 @@ class Inscription extends Component {
                                 type: "email",
                                 required: true,
                                 message: 'SVP entrer votre  email ! ',
-                            }]}  >
-                                <Input placeholder="email" onChange={(e) => { this.setState({ email: e.target.value }) }} rules={[
+                                label:'email'
+                            }]}  > 
+                                <Input placeholder="* E-mail" onChange={(e) => { this.setState({ email: e.target.value }) }} rules={[
                                     {
                                         type: "email",
                                         required: true,
@@ -111,8 +112,9 @@ class Inscription extends Component {
                                 required: true,
                                 message: 'SVP entrer votre  nom  mot de Passe! ',
                             }]}  >
-                                <Input.Password placeholder="mot De Passe " onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} rules={[
+                                <Input.Password placeholder="* Mot De Passe " onChange={(e) => { this.setState({ motDePasse: e.target.value }) }} rules={[
                                     {
+                                   
                                         required: true,
                                         message: '!',
                                     },
@@ -125,12 +127,12 @@ class Inscription extends Component {
 
                             <div className="container-inscription-nom-prenom-tél-role">
                                 <span>
-                                    <p>* Role</p>
+                                  
                                     <Form.Item name='role' rules={[{
                                         required: true,
                                         message: 'SVP entrer votre  ! ',
                                     }]}  >
-                                        <Select style={{ width: 200 }} placeholder="sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} rules={[
+                                        <Select style={{ width: 200 }} placeholder="* sélectionner  rôle" onChange={(value) => { this.setState({ role: value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
@@ -143,12 +145,12 @@ class Inscription extends Component {
                                         </Select>
                                     </Form.Item>
                                 </span>
-                                <span> <p>*  Numéro de téléphone</p>
+                                <span> 
                                     <Form.Item name='Numéro' rules={[{
                                         required: true,
                                         message: 'SVP entrer votre  ! ',
                                     }]}  >
-                                        <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" votre numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} rules={[
+                                        <Input type="tel" style={{ width: 200 }} pattern="\d*" placeholder=" *  Numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} rules={[
                                             {
                                                 required: true,
                                                 message: '!',
