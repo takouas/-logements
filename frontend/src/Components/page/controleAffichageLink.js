@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 
 
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+
 
 
 import jwt from 'jsonwebtoken';
@@ -14,7 +14,7 @@ import Client from './link/priveLink/client';
 
 import PublicLink from './link/publicLink';
 
-const Home = () => {
+const HomeLink = () => {
   var token = localStorage.getItem('token')
 
   if (token !== null) {
@@ -47,7 +47,7 @@ const Home = () => {
 
 
 }
-export default Home;
+export default HomeLink;
 
 
 

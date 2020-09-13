@@ -64,12 +64,6 @@ export default class Client extends Component {
         return (
             <div>
 
-
-
-
-
-
-
                 <div className="menuCon">
 
                     <div className="leftMenu">

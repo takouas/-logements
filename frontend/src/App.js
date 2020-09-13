@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Home from './Components/page/linkHome'
+import Home from './Components/page/controleAffichageLink'
 import bity from './image/logoBity.png'
 import HomeClient from './Components/annonces/homeClient';
 import GestionnaireAnnonces from './Components/gestionnaireAnnonces/gestionnaireAnnonces'

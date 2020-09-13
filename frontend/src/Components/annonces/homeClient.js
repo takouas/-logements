@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import "./annonces.css"
 import { connect } from 'react-redux';
 import { getAnnonceFromApi } from "../../api/annoncesApi"
-import ListAnnonces from './listAnnoncesClient';
+
 
 import prix from '../../ressource/prix'
 import gouvernorat from '../../ressource/gouvernorat'
 import TypeDeBien from '../../ressource/typeDeBien'
-import { Modal, Button, Form, Input, Checkbox, Select, Tooltip, Pagination } from 'antd';
+import VoirPlus from './voirPlus';
+import { Modal, Button, Form, Input, Checkbox, Select, Tooltip, Pagination ,Card} from 'antd';
 const { Search } = Input;
 
 
@@ -43,8 +44,8 @@ class HomeClient extends Component {
                 <br />
 
                 <div className='container-home-annonces-section-barre-recherche-et-annonce'>
-                    <td style={{ backgroundColor: '#1F2833', marginRight: '5px' }} className='containere-recherche-guest' >
-                        <h3 style={{ color: 'white' }}>Filtre de recherche :</h3>
+                    <td style={{ backgroundColor: '#1F2833', marginRight: '5px' }} className='containere-recherche-client' >
+                        <h3 >Filtre de recherche :</h3>
 
 
                         <div className='containere-recherche-guest'>
@@ -160,7 +161,30 @@ class HomeClient extends Component {
 
                                 ((this.state.page - 1) * this.state.pageSize) <= i && i < (this.state.page * this.state.pageSize)).map(el =>
 
-                                    <ListAnnonces el={el} />)}
+                                    <Card
+                    
+                                    hoverable
+                                    style={{ width: 320, marginRight: '10px', marginBottom: '15px', borderRadius: '25px' }}
+                                    cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 195, borderRadius: '25px 25px 0 0' }} />}
+                                >
+            
+                                    <div style={{ fontSize: '10px' }}> <p>{el.gouvernorat}<br />
+                                        {el.prix} DT {el.periode}<br />
+                                        {el.typeDeBien}</p>
+            
+                                        <div style={{
+                                            float: "right",
+                                
+                                            fontFamily: 'Cormorant Infant serif',
+                                            fontWeight: 'bold',
+                                        }} >
+                                            <VoirPlus el={el} />
+                                        </div>
+            
+                                    </div>
+            
+                                </Card>
+            )}
 
                         </div>
                         <center> <Pagination defaultCurrent={1} pageSize={6} showSizeChanger={false} total={this.props.stateAnnonces.length} onChange={this.paginate} /></center>

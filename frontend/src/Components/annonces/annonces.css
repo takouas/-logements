@@ -78,10 +78,11 @@ height:155px
 .containere-recherche-guest{
 
   background-image: url('../../image/homeblue\ \(copy\).jpg');
-    
+
  
 
 }	
+
 .containr-section-befor-footer{
 
     background-color: rgb(224, 0, 52,0.9);
@@ -144,12 +145,14 @@ a{
     font-weight:bold ;  
     color: black !important;  
 }
-.back-top{
-  
-}
+
 /******************** Home Annonces ****************************/
 
+.containere-recherche-client{
+    background-image: url('../../image/homeblue.jpg');
 
+    background-repeat: no-repeat;
+}
 
 /***************** ListAnnoncesProp*******************************/
 .container-card-list-button-edite-delete{
