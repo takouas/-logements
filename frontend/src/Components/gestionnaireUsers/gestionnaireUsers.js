@@ -50,15 +50,13 @@ class GestionnaireUsers extends Component {
     render() {
         console.log(this.props.stateUsers)
         return (
-            <div>
+            <div className='container-page-admin'>
 
-                <div className="container-page-admin-barre-recherche" >
-                    <div><Search placeholder="Nom" name="nom" style={{ width: 200, marginBottom: 15, marginTop: 55 }} onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
-                    <div>
-
-                    </div>
-                </div>
-                <table>
+                <center>
+                    <div><Search placeholder="Nom" name="nom" style={{ width: 600, marginBottom: 15, marginTop: 55 }} onChange={(e) => { this.setState({ searchNom: e.target.value }) }} /></div>
+              
+                </center>
+                <table> 
                     <thead>
                         <tr>
                             <th>Nom</th>

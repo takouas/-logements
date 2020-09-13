@@ -3,7 +3,7 @@
     margin: 50px 0;
     display: flex;
     justify-content: center;
-    background-image: url('../../image/404page.jpg');
+    background-image: url('../../../image/404page.jpg');
     background-repeat: no-repeat;
 height: 460px;
 }

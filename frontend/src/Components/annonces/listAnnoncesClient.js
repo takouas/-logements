@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Card } from 'antd';
 import { connect } from 'react-redux';
 import { getAnnonceFromApi } from "../../api/annoncesApi"
+
 import VoirPlus from './voirPlus';
-import VoirPlusProp from './voirPlusProp';
-import Hh from './hh';
+
 import { BrowserRouter, Route, Link } from "react-router-dom";
 class ListAnnonces extends Component {
 
@@ -31,7 +31,7 @@ class ListAnnonces extends Component {
                                 fontFamily: 'Cormorant Infant serif',
                                 fontWeight: 'bold',
                             }} >
-                                <VoirPlusProp el={this.props.el} />
+                                <VoirPlus el={this.props.el} />
                             </div>
 
                         </div>
@@ -39,9 +39,7 @@ class ListAnnonces extends Component {
                     </Card>
 
                 }
-                {/* <Link to='/h'> <h6 className='logOut'>log out</h6></Link>
-               
-                <Route path="/h" component={Hh} /> */}
+              
             </div>
 
 

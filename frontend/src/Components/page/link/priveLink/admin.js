@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import HomeAnnonces from '../annonces/homeAnnonces'
+
 import { BrowserRouter, Route, Link, Switch, Redirect, } from "react-router-dom";
-import bity from '../../image/logoBity.png'
+
 import { UserOutlined, CloseOutlined } from '@ant-design/icons';
-import './interface.css'
-import Dashboard from '../page/dashboard'
+
+
 import { Drawer, Button, Dropdown, Menu } from 'antd';
-import Déconnexion from '../users/déconnexion';
-export default class Client extends Component {
+import Déconnexion from '../../../users/déconnexion';
+export default class Admin extends Component {
     state = {
         current: 'mail',
         visible: false
@@ -28,49 +28,44 @@ export default class Client extends Component {
         const menu = (
             <Menu>
                 <Menu.Item key="0">
-                    <Link to="/Dashboard" style={{
-                        color: 'black', fontSize: '15px',
-                        fontFamily: 'Cormorant Infant serif',
-                        fontWeight: 'bold'
-                    }}>Profile</Link>
+                <Link to="/Dashboard" style={{
+                               color: 'black', fontSize: '15px',
+                                fontFamily: 'Cormorant Infant serif',
+                                fontWeight: 'bold'
+                            }}>Profile</Link>
 
                 </Menu.Item>
-
+               
                 <Menu.Item key="3">        <Déconnexion /></Menu.Item>
             </Menu>
         );
 
         return (
             <div>
-
-         
-
-
-
-
-                <nav className="menuBar">
-                    <div className="logo">
-                        <Link to="/"> <img src={bity} className='navbar-logo-bity' ></img></Link>
-                    </div>
+              
                     <div className="menuCon">
-
                         <div className="leftMenu">
-
-                            <Link to="/HomeAnnonces" style={{
+                            <Link to="/GestionnaireUsers" style={{
+                                paddingRight: '15px', color: 'black', fontSize: 15,
+                                fontFamily: 'Cormorant Infant serif',
+                                fontWeight: 'bold'
+                            }}> Utilisateurs</Link>
+                        </div>
+                        <div className="leftMenu">
+                            <Link to="/GestionnaireAnnonces" style={{
                                 paddingRight: '15px', color: 'black', fontSize: 15,
                                 fontFamily: 'Cormorant Infant serif',
                                 fontWeight: 'bold'
                             }}>Annonces</Link>
-
                         </div>
                         <div className="rightMenu">
 
-
+                           
 
 
                             <Dropdown overlay={menu} trigger={['click']}>
                                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                    <UserOutlined />
+                                    <UserOutlined style={{zoom:'1.5'}}/>
                                 </a>
                             </Dropdown>
 
@@ -88,17 +83,18 @@ export default class Client extends Component {
                             <Button onClick={this.onClose} style={{ marginRight: 8 }}>
                                 <CloseOutlined />
                             </Button>
-                        
+                            <div>  <Link to="/GestionnaireAnnonces" style={{
+                                paddingRight: '15px', color: 'black', fontSize: 15,
+                                fontFamily: 'Cormorant Infant serif',
+                                fontWeight: 'bold'
+                            }}>Annonces</Link></div>
                             <div>
-
-
-                                <Link to="/HomeAnnonces" style={{
+                                <Link to="/GestionnaireUsers" style={{
                                     paddingRight: '15px', color: 'black', fontSize: 15,
                                     fontFamily: 'Cormorant Infant serif',
                                     fontWeight: 'bold'
-                                }}>Annonces</Link>
+                                }}> Utilisateurs</Link>
                             </div>
-
 
 
 
@@ -107,40 +103,11 @@ export default class Client extends Component {
                                 fontFamily: 'Cormorant Infant serif',
                                 fontWeight: 'bold'
                             }}> profile</Link>
-                            <Déconnexion />
+                             <Déconnexion />
                         </Drawer>
 
                     </div>
-                </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <Route exact path='/Dashboard' render={() => <Dashboard />} />
-                <Route exact path='/HomeAnnonces' render={() => <HomeAnnonces />} />
+            
 
             </div>
         )

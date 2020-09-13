@@ -38,6 +38,18 @@ border-right-color: transparent!important;
 }
 .modifie-profile-pargraphe{
     font-size:15px ;
+    text-align: center;
+}
+.section-dashbord{
+
+    padding-top: 25px;
+    background-image:url(../../image/dashpage.jpg);
+
+    background-repeat: no-repeat;
+
+    height: 700px;
+
+    background-position: center center;
 }
 @media 
 only screen and (max-width: 760px),

@@ -1,26 +1,36 @@
 import React from 'react'
-import Page from './Components/page/page'
-import Home from './Components/page/home'
+
+import Home from './Components/page/linkHome'
 import bity from './image/logoBity.png'
-import HomeAnnonces from './Components/annonces/homeAnnonces';
+import HomeClient from './Components/annonces/homeClient';
 import GestionnaireAnnonces from './Components/gestionnaireAnnonces/gestionnaireAnnonces'
 import ListAnnonceProp from './Components/annonces/listAnnonceProp';
 import GestionnaireUsers from './Components/gestionnaireUsers/gestionnaireUsers';
 import HomeGuest from './Components/annonces/homeGuest'
-import NotFoundPage from'./Components/page/notFoundPage'
+import NotFoundPage from './Components/page/notFound 404/notFoundPage'
+import Dashboard from './Components/users/dashboard'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect, } from "react-router-dom";
+import Nav from './Components/page/navbar';
 
 export default function App() {
     return (
         <div>
             <Router>
-            <Page />
+
+
+                <Nav />
                 <Switch>
-                  
-                    <Route exact path="/" component={HomeGuest} />
-                    <Route component={NotFoundPage} />
-                    
+                    <Route exact path='/' render={() => <HomeGuest />} />
+                    <Route exact path="/GestionnaireAnnonces" render={() => <GestionnaireAnnonces />} />
+                    <Route exact path='/GestionnaireUsers' render={() => <GestionnaireUsers />} />
+                    <Route exact path='/Dashboard' render={() => <Dashboard />} />
+                    <Route exact path='/HomeAnnonces' render={() => <HomeClient />} />
+                    <Route exact path='/ListAnnonceProp' render={() => <ListAnnonceProp />} />
+                    <Route path="/404" component={NotFoundPage} />
+                    <Redirect to="/404" />
                 </Switch>
+
+
             </Router>
 
 

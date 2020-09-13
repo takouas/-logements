@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import "./annonces.css"
 import { connect } from 'react-redux';
 import { getAnnonceFromApi } from "../../api/annoncesApi"
-import ListAnnonces from './listAnnonces';
+import ListAnnonces from './listAnnoncesClient';
 
 import prix from '../../ressource/prix'
 import gouvernorat from '../../ressource/gouvernorat'
@@ -12,7 +12,7 @@ const { Search } = Input;
 
 
 const { Option } = Select;
-class HomeAnnonces extends Component {
+class HomeClient extends Component {
 
 
     state = {
@@ -186,4 +186,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeAnnonces)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeClient)

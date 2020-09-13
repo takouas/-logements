@@ -1,12 +1,23 @@
 /*********************** Home guset *************************/
 .container-introduction{
-    background-color: #1F2833;
-    padding: 35px;
+    /* background-color: #1F2833; */
+    background-image: url(../../image/intro.jpg);
+    background-repeat: no-repeat;
 
+
+    background-position: center center;
+}
+
+.containr-section-after-carousel{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 .container-introduction-pargraphe{
-    font-size: 24px;
-    color: white;
+    padding:55px 0 ;
+    font-size: 20px;
+    background-color:rgb(0, 0, 0,0.1);
+    /* color: white; */
 margin-bottom: 25px;
     text-align: center;
     font-weight:bold ;
@@ -14,14 +25,14 @@ margin-bottom: 25px;
 
 }
 .btn-cliquer-ici-guest{
-    background-color: #e00034 !important ;
+
 position: relative;
-    color: white;
-   padding: 20px;
+
+   padding: 10px;
    margin-top: 5px;
    border-radius: 15px;
-   width: 400px;
-font-size:25px ;
+   width: 200px;
+font-size:15px ;
 
 }
 .container-home-annonces-footer{
@@ -63,6 +74,34 @@ font-size:25px ;
 .logo-footer{
 width:265px;
 height:155px
+}
+.containere-recherche-guest{
+
+  background-image: url('../../image/homeblue\ \(copy\).jpg');
+    
+ 
+
+}	
+.containr-section-befor-footer{
+
+    background-color: rgb(224, 0, 52,0.9);
+    padding: 28px 0;
+
+}
+.containr-section-befor-footer-element{
+border-radius:50%  ;
+padding-top: 15px;
+background-color: white;
+width: 220px;
+height: 140px;
+color: black;
+font-weight:bold ;  
+}
+.containr-section-befor-footer-all-elements{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    text-align: center;
 }
 /***************** List Annonces *******************************/
 .container-card-list{
@@ -159,7 +198,22 @@ padding-left: 250px;
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
+    .containr-section-befor-footer{
+        width: 100%;   
+    }
+ 
+    .container-home-annonces{
+        width:100%;    
+    }
+    .container-introduction-pargraphe{
+  
+        font-size: 15px;
+   
+    
+    
+    }
     .carousel-image{
+
         width: 100%; 
         height: 20%;
       
@@ -190,6 +244,8 @@ only screen and (max-width: 760px),
     display: flex;
     flex-flow: row wrap;
     padding-left: 15px;
+    width: 100%;
+
     
  
 
@@ -207,6 +263,7 @@ font-size:20px ;
  }
 .container-home-annonces-reseaux{
     display: flex;
+    width: 70%;
     flex-flow: row wrap;  
 }
 
@@ -234,4 +291,5 @@ font-size:20px ;
     text-align: start;
 
   }
+
 }

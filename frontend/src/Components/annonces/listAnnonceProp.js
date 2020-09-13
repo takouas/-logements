@@ -7,7 +7,7 @@ import AjoutAnnonces from './ajoutAnnonces';
 
 import ModifierAnnonces from './modificationAnnonces';
 import jwt from 'jsonwebtoken';
-import VoirPlusProp from './voirPlusProp';
+import VoirPlusProp from './voirPlus';
 
 
 

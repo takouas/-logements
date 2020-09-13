@@ -84,10 +84,7 @@ class Connection extends Component {
               <Form.Item
                 name="password"
                 rules={[
-                  {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                  },
+               
                   {
                     required: true,
                     message: ' SVP entrer votre mot de passe et appuyer sur le bouton Connecxion! ',

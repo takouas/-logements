@@ -1,16 +1,14 @@
-.container-page-admin-barre-recherche{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    margin-bottom: 15px;
+
+
+.container-page-admin{
+  align-items: center;
 }
-
-
 
 table { 
 	width: 750px; 
 	border-collapse: collapse; 
 	margin:50px auto;
+
 	}
 
 
@@ -21,7 +19,16 @@ td, th {
 	text-align: left; 
 	font-size: 18px;
 	}
+	th{
+		color:#e00034 ;
+	}
 
+	tr:hover {
+		background: #d1d1d1;
+	  }
+	  tr:nth-child(even) {
+		background: #efefef;
+	  }
 /* 
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px
