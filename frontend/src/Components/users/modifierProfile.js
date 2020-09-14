@@ -33,17 +33,17 @@ class ModifierProfile extends Component {
         console.log(this.state.nouveauMotDePasse)
         return (
             <div>
-              
-                    <Button style={{  width: "250px" }} onClick={() => this.setState({ visibleInput: !this.state.visibleInput })} >Modifier profile</Button>
 
-           
+                <Button style={{ width: "250px" }} onClick={() => this.setState({ visibleInput: !this.state.visibleInput })} >Modifier profile</Button>
+
+
 
                 <br />
 
 
 
                 <Tag
-                    style={{ width: 250, backgroundColor: "transparent" }}
+                    style={{ width: 250, }}
 
                     visible={this.state.visibleInput}
                     onClose={() => this.setState({ visibleInput: false })}
@@ -57,9 +57,9 @@ class ModifierProfile extends Component {
                         </div>
 
                         <div>
-                        <Form.Item
-                                 label="* Nom"
-                                 rules={[
+                            <Form.Item
+                                label="* Nom"
+                                rules={[
                                     {
                                         required: true,
 
@@ -67,14 +67,14 @@ class ModifierProfile extends Component {
                                 ]}
                                 hasFeedback
                             >
-                                   
-                               
-                                  
-                            <Input defaultValue={this.state.nom} onChange={(e) => { this.setState({ nom: e.target.value }) }} />
-                                </Form.Item>
-                                <Form.Item
-                                 label="* Prénom "
-                                 rules={[
+
+
+
+                                <Input defaultValue={this.state.nom} onChange={(e) => { this.setState({ nom: e.target.value }) }} />
+                            </Form.Item>
+                            <Form.Item
+                                label="* Prénom "
+                                rules={[
                                     {
                                         required: true,
 
@@ -82,15 +82,15 @@ class ModifierProfile extends Component {
                                 ]}
                                 hasFeedback
                             >
-                                   
-                               
-                                 
-                            <Input defaultValue={this.state.prenom}  onChange={(e) => { this.setState({ prenom: e.target.value }) }}
-                            />
-                                </Form.Item>
-                                <Form.Item
-                                 label="* Numéro de téléphone"
-                                 rules={[
+
+
+
+                                <Input defaultValue={this.state.prenom} onChange={(e) => { this.setState({ prenom: e.target.value }) }}
+                                />
+                            </Form.Item>
+                            <Form.Item
+                                label="* Numéro de téléphone"
+                                rules={[
                                     {
                                         required: true,
 
@@ -98,14 +98,14 @@ class ModifierProfile extends Component {
                                 ]}
                                 hasFeedback
                             >
-                                   
-                                  
-                            <Input defaultValue={this.state.telephone} type="tel"  pattern="\d*" placeholder="numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
 
-                                </Form.Item>
-                         
 
-                            
+                                <Input defaultValue={this.state.telephone} type="tel" pattern="\d*" placeholder="numéro de téléphone" onChange={(e) => { this.setState({ telephone: e.target.value }) }} />
+
+                            </Form.Item>
+
+
+
                         </div>
 
                     </div>
@@ -121,14 +121,12 @@ class ModifierProfile extends Component {
                     })} >Enregistrer</Button>
 
                 </Tag>
+                <br />
+                <Button style={{ width: "250px" }} onClick={() => this.setState({ showInputPass: !this.state.showInputPass })} closable>Changer le mot de passe </Button>
 
                 <br />
-            
-                <Button style={{ width: "250px"}} onClick={() => this.setState({ showInputPass: !this.state.showInputPass })} closable>Changer le mot de passe </Button>
-            
-                <br />
                 <Tag
-                    style={{ width: 250, backgroundColor: "transparent" }}
+                    style={{ width: 250 }}
 
                     visible={this.state.showInputPass}
                     onClose={() => this.setState({ showInputPass: false })}
@@ -143,16 +141,16 @@ class ModifierProfile extends Component {
 
                             <Form>
                                 <Form.Item
-                                 name="passss"
-                                 label="Tapez votre mot de passe actuel: "
-                                 rules={[
-                                    {
-                                        required: true,
-                                        message: "svp Tapez votre mot de passe actuel!"
-                                    }
-                                ]}
-                                hasFeedback
-                            >
+                                    name="passss"
+                                    label="Tapez votre mot de passe actuel: "
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: "svp Tapez votre mot de passe actuel!"
+                                        }
+                                    ]}
+                                    hasFeedback
+                                >
                                     <Input.Password onChange={(e) => { this.setState({ motDePasse: e.target.value }) }}
                                     />
 

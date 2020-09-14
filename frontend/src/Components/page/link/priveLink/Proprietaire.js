@@ -39,16 +39,16 @@ export default class Proprietaire extends Component {
                 <Menu.Item key="3">        <Déconnexion /></Menu.Item>
             </Menu>
         );
-        const menu2=(
+        const menu2 = (
             <Menu>
                 <Menu.Item key="0">
-                <Link to="/ListAnnonceProp" style={{
+                    <Link to="/ListAnnonceProp" style={{
                         paddingRight: '15px', color: 'black', fontSize: 15,
                         fontFamily: 'Cormorant Infant serif',
                         fontWeight: 'bold'
-                    }}>Annonces</Link>
-                    </Menu.Item>
-                    <Menu.Item key="1">
+                    }}>Proprietaire</Link>
+                </Menu.Item>
+                <Menu.Item key="1">
 
                     <Link to="/Dashboard" style={{
                         color: 'black', fontSize: '15px',
@@ -86,22 +86,22 @@ export default class Proprietaire extends Component {
 
                     <Dropdown overlay={menu} trigger={['click']}>
                         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                            <UserOutlined style={{zoom:'1.5'}} />
+                            <UserOutlined style={{ zoom: '1.5' }} />
                         </a>
                     </Dropdown>
 
                 </div>
 
 
-                <Dropdown  className="barsMenu" overlay={menu2} trigger={['click']}>
+                <Dropdown className="barsMenu" overlay={menu2} trigger={['click']}>
                     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                    <span className="barsBtn"></span>
+                        <span className="barsBtn"></span>
                     </a>
                 </Dropdown>
 
 
 
-               
+
 
             </div>
 

@@ -29,11 +29,12 @@ export default class App extends Component {
 
 
                         <Switch>
-                            <Route exact path='/' render={() => <HomeGuest />} />
+
                             <Route exact path="/GestionnaireAnnonces" render={() => <GestionnaireAnnonces />} />
                             <Route exact path='/GestionnaireUsers' render={() => <GestionnaireUsers />} />
+                            <Route exact path='/GestionnaireUsers' render={() => <GestionnaireUsers />} />
                             <Route exact path='/Dashboard' render={() => <Dashboard />} />
-                            <Route exact path='/HomeAnnonces' render={() => <HomeClient />} />
+                            <Route exact path='/' render={() => <HomeClient />} />
                             <Route exact path='/ListAnnonceProp' render={() => <ListAnnonceProp />} />
                             <Route path="/404" component={NotFoundPage} />
                             <Redirect to="/404" /> :

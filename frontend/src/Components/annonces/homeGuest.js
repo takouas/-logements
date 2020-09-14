@@ -3,22 +3,16 @@ import "./annonces.css"
 import { connect } from 'react-redux';
 import { getAnnonceFromApi } from "../../api/annoncesApi"
 
-import { PhoneOutlined, MailOutlined } from '@ant-design/icons';
+
 import { Card, Steps } from 'antd';
 
-
-import bity from '../../image/logoBity.png'
-import fb from '../../image/facebook-icons-6951.png'
-import insta from '../../image/instagram-logo-png-2432.png'
-import dar from '../../image/dar.png'
-import jeune from '../../image/image.png'
-import foyer from '../../image/foyer.png'
 import logment from '../../image/Screenshot from 2020-09-13 12-12-46.png'
 import annonce from '../../image/Screenshot from 2020-09-13 12-10-39.png'
 import gouvernorat from '../../ressource/gouvernorat'
 import TypeDeBien from '../../ressource/typeDeBien'
 import prix from '../../ressource/prix'
 import { Modal, Button, Form, Input, Select, Carousel, Pagination, BackTop, notification } from 'antd';
+import Footer from '../page/footer';
 
 
 
@@ -68,10 +62,26 @@ class HomeGuest extends Component {
 
                 <section  >
 
-                    <br />
                     <center >
-                        <Carousel autoplay dots={false} className="carousel">
-                            {this.props.stateAnnonces.map(el => <center><img alt="maison" src={"http://localhost:5000/" + el.image} className="carousel-image" /></center>)}
+                        <Carousel autoplay dots={true} className="carousel">
+                            <div className="carousel-section1">
+                                <div style={{ backgroundColor: 'rgb(0,0,0,0.2)', height: '80vh' }}>
+                                    <h3 className='pargraphe-carousel'   >
+                                        Bity vous propose plusieurs choix  d'hébergements  spécialement pour vous  les étudiants
+
+                </h3>
+                                </div>
+                            </div>
+                            <div className="carousel-section2">
+                                <div style={{ backgroundColor: 'rgb(0,0,0,0.2)' }}>
+                                    <h3  className='pargraphe-carousel' >Vous cherchez un logement  ?</h3>
+                                </div>
+                            </div>
+                            <div className="carousel-section3">
+                                <div style={{ backgroundColor: 'rgb(0,0,0,0.2)' }}>
+                                    <h3 className='pargraphe-carousel' > Bienvenue sur Bity</h3>
+                                </div>
+                            </div>
                         </Carousel>
 
 
@@ -114,18 +124,12 @@ class HomeGuest extends Component {
                         </Card>
                     </div>
                     <br />
-                    <div className="container-introduction">
-                        <h3 className="container-introduction-pargraphe" >
-                            Bity vous propose plusieurs choix  d'hébergements  spécialement pour vous  les étudiants <br /> Vous cherchez un logement  ? <br />Bienvenue sur Bity
 
-                </h3>
-
-                    </div>
 
                     <div id='card-list' className='container-home-annonces-section-barre-recherche-et-annonce'>
-                        <td className='containere-recherche-guest' style={{ marginRight: '15PX ' }} >
+                        <div className='containere-recherche-guest' >
                             <h3>Filtre de recherche :</h3>
-                            <div className='containere-recherche-guest'>
+                            <div>
                                 <div  >
                                     <Form.Item  >
                                         <Select name="typeDeBien"
@@ -171,27 +175,19 @@ class HomeGuest extends Component {
 
 
 
-
-                                    {/* 
-                        <Form.Item >
-                                <Select placeholder="Nouveau" style={{ width: 180  }} name="periode" onChange={(value) => { this.setState({ searchNouveau: value }) }} allowClear>
-                                    <Option value="nouveau">nouveau </Option>
-                                    <Option value="ancienne">ancienne</Option>
-                                </Select>
-                            </Form.Item> */}
                                 </div>
                             </div>
-                        </td>
+                        </div>
 
 
 
 
-                        {/* <div class="vl"></div> */}
+
 
 
 
                         <div >
-                            <div className='container-card-list-guest' >
+                            <div className='container-card-list-guest' style={{marginRight:'30px'}}>
                                 {this.props.stateAnnonces.filter(el => {
                                     if (this.state.searchTypeDeBien) {
                                         return el.typeDeBien.includes(this.state.searchTypeDeBien)
@@ -228,13 +224,13 @@ class HomeGuest extends Component {
                                         <Card
                                             onClick={() => openNotificationWithIcon('info')}
                                             hoverable
-                                            style={{ width: '310px', marginRight: '10px', marginBottom: '15px', borderRadius: '25px' }}
-                                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: '200px', borderRadius: '25px 25px 0 0' }} />}
+                                            style={{ width: '310px', marginRight: '10px', marginBottom: '15px', borderRadius: '5px' }}
+                                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: '200px', borderRadius: '5px 5px 0 0' }} />}
                                         >
 
-                                            <div style={{ fontSize: '12px', fontWeight: 'bold' }}> <p>{el.gouvernorat}<br />
-                                                {el.prix} DT {el.periode}<br />
-                                                {el.typeDeBien}</p>
+                                            <div style={{ fontSize: '16px' }}> <p><strong>Gouvernerat:  </strong>{el.gouvernorat}<br />
+                                                <strong>Prix: </strong>{el.prix} DT {el.periode}<br />
+                                                <strong>Type de bien:  </strong>{el.typeDeBien}</p>
                                             </div>
 
                                         </Card>
@@ -249,67 +245,9 @@ class HomeGuest extends Component {
 
 
                 </section>
-                <section className="containr-section-befor-footer">
-                    <h3 style={{ color: 'white', textAlign: 'center', fontWeight: 'bold', fontSize: '25px' }}>Trouver un logement , c’est simple sur  Bity </h3>
-                    <br />
-                    <div className="containr-section-befor-footer-all-elements">
-                        <div className="containr-section-befor-footer-element">
-                            <img src={jeune} style={{ width: '70px' }}></img>
-                            <p>
+               
+                <Footer />
 
-                                Hébergement dans <br />les maison des jeunes
-                        </p>
-
-                        </div>
-                        <div className="containr-section-befor-footer-element">
-                            <img src={dar} style={{ width: '70px' }}></img>
-                            <p>collocation</p>
-                        </div>
-                        <div className="containr-section-befor-footer-element">
-                            <img src={foyer} style={{ width: '70px' }}></img>
-                            <p>
-                                Guide des foyers privés <br />pour les étudiants
-                                </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-                <footer className="container-home-annonces-footer">
-
-                    <div>
-                        <img src={bity} className="logo-footer"  ></img>
-
-                    </div>
-                    <div>
-                        <h3 style={{ color: '#e00034' }}>Votre logement étudiant</h3>
-                        <p>Résidence étudiante<br />Studio<br />Chambre<br />Foyer prive <br />Maison</p>
-
-                    </div>
-
-                    <div className="container-home-annonces-reseaux" >
-                        <div> <span style={{ color: '#e00034' }} >Suivez-nous</span><br />
-                            <a title="" href="">   <img src={fb} style={{ width: "40px", height: "40px" }}></img>   </a>
-
-                            <a title="" href="">    <img src={insta} style={{ width: "52px", height: "38px" }}></img>   </a>
-                        </div>
-                        <br />
-
-                        <div  >  <p> <span style={{ color: '#e00034' }}>Contactez nous </span> <br />
-                            <MailOutlined /> E-mail:takouasimplon@gmail.com
-                            <br /> <PhoneOutlined /> tel:225255</p></div>
-
-                    </div>
-
-
-
-
-                </footer>
-
-
-                <center style={{ backgroundColor: '#1F2833', color: 'white' }}>Copyright © Bity 2020</center>
 
             </div>
         )

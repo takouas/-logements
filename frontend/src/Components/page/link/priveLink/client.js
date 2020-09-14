@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Link, Switch, Redirect, } from "react-router-dom"
 import { UserOutlined, CloseOutlined } from '@ant-design/icons';
 
 
+import bity from '../../../../image/logoBity.png'
 import { Drawer, Button, Dropdown, Menu } from 'antd';
 import Déconnexion from '../../../users/déconnexion';
 export default class Client extends Component {
@@ -39,26 +40,6 @@ export default class Client extends Component {
                 <Menu.Item key="3">        <Déconnexion /></Menu.Item>
             </Menu>
         );
-        const menu2 = (
-            <Menu>
-                <Menu.Item key="0">      <Link to="/HomeAnnonces" style={{
-                    paddingRight: '15px', color: 'black', fontSize: 15,
-                    fontFamily: 'Cormorant Infant serif',
-                    fontWeight: 'bold'
-                }}>Annonces</Link>
-                </Menu.Item>
-                <Menu.Item key="1">
-                    <Link to="/Dashboard" style={{
-                        color: 'black', fontSize: '15px',
-                        fontFamily: 'Cormorant Infant serif',
-                        fontWeight: 'bold'
-                    }}>Profile</Link>
-
-                </Menu.Item>
-
-                <Menu.Item key="3">        <Déconnexion /></Menu.Item>
-            </Menu>
-        );
 
 
         return (
@@ -66,15 +47,6 @@ export default class Client extends Component {
 
                 <div className="menuCon">
 
-                    <div className="leftMenu">
-
-                        <Link to="/HomeAnnonces" style={{
-                            paddingRight: '15px', color: 'black', fontSize: 15,
-                            fontFamily: 'Cormorant Infant serif',
-                            fontWeight: 'bold'
-                        }}>Annonces</Link>
-
-                    </div>
                     <div className="rightMenu">
 
 
@@ -82,42 +54,14 @@ export default class Client extends Component {
 
                         <Dropdown overlay={menu} trigger={['click']}>
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                <UserOutlined style={{zoom:'1.5'}}/>
+                                <UserOutlined style={{ zoom: '1.5' }} />
                             </a>
                         </Dropdown>
 
                     </div>
 
-                    <Dropdown className="barsMenu" overlay={menu2} trigger={['click']}>
-                        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                            <span className="barsBtn"></span>
-                        </a>
-                    </Dropdown>
+
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

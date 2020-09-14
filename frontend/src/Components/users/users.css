@@ -37,17 +37,19 @@ border-right-color: transparent!important;
 
 }
 .modifie-profile-pargraphe{
-    font-size:15px ;
+   font-family: serif;
     text-align: center;
+    color: white;
 }
 .section-dashbord{
 
     padding-top: 25px;
-    background-image:url(../../image/dashpage.jpg);
+    background-image:url(../../image/2929219.jpg);
 
     background-repeat: no-repeat;
 
     height: 700px;
+    background-size: cover;
 
     background-position: center center;
 }

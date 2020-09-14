@@ -12,6 +12,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    padding-top: 25px;
 }
 .container-introduction-pargraphe{
     padding:55px 0 ;
@@ -34,16 +35,10 @@ position: relative;
    width: 200px;
 font-size:15px ;
 
-}
-.container-home-annonces-footer{
-
-    padding-top: 50px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
- 
 
 }
+
+
 .container-card-list-guest{
     display: flex;
     flex-flow: row wrap;
@@ -58,57 +53,56 @@ font-size:15px ;
 }
 .container-home-annonces-section-barre-recherche-et-annonce{
     display: flex;
-
     margin-bottom: 25px;
     padding:40px 0 ;
 
-
 }
-.carousel-image{
-    width: 75%; 
-    height: 350px;
-
-  
+/***************** carousel *******************************/
+.carousel{
+    height: 80vh;
+ 
 }
-
-.logo-footer{
-width:265px;
-height:155px
+.pargraphe-carousel{
+   color: white;
+    font-size: 50px;
+     font-weight: bold;
+      padding-top: 350px ;
 }
+.carousel-section1{
+background-image: url('../../image/8074.jpg');
+
+background-size: cover;
+height: 80vh;
+}
+.carousel-section2{
+    background-image: url('../../image/16189.jpg');
+    background-size: cover;
+    height: 80vh;
+    }
+    .carousel-section3{
+        background-image: url('../../image/12375.jpg');
+        background-size: cover;
+        height: 80vh;
+        }
+
+/***************** recherche *******************************/
+
 .containere-recherche-guest{
 
-  background-image: url('../../image/homeblue\ \(copy\).jpg');
+background: rgba(243, 241, 242, 0.604);
+  padding: 20px 40px 20px 20px;
+border-right: thin solid rgb(224, 0, 52,0.9);
+height: 100%;
 
  
 
 }	
-
-.containr-section-befor-footer{
-
-    background-color: rgb(224, 0, 52,0.9);
-    padding: 28px 0;
-
-}
-.containr-section-befor-footer-element{
-border-radius:50%  ;
-padding-top: 15px;
-background-color: white;
-width: 220px;
-height: 140px;
-color: black;
-font-weight:bold ;  
-}
-.containr-section-befor-footer-all-elements{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    text-align: center;
-}
 /***************** List Annonces *******************************/
 .container-card-list{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+
 
 }
 .vl {
@@ -149,7 +143,7 @@ a{
 /******************** Home Annonces ****************************/
 
 .containere-recherche-client{
-    background-image: url('../../image/homeblue.jpg');
+
 
     background-repeat: no-repeat;
 }
@@ -195,15 +189,13 @@ padding-left: 250px;
 /************************* containere + media*********************/
   
 .section1-voir-plus-annonce-image{
-   height: 250px ;width: 450px
+   height: 350px ;width: 450px
 }
 
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
-    .containr-section-befor-footer{
-        width: 100%;   
-    }
+
  
     .container-home-annonces{
         width:100%;    
@@ -215,16 +207,35 @@ only screen and (max-width: 760px),
     
     
     }
-    .carousel-image{
+    .carousel{
 
         width: 100%; 
-        height: 20%;
+        height:25vh;
       
     }
-    .logo-footer{
-        width:65px;
-        height:50px
+    .pargraphe-carousel{
+    
+         font-size: 10px;
+  
+           padding-top: 80px ;
+     }
+    .carousel-section1{
+
+        width: 100%; 
+        height:25vh;
         }
+        .carousel-section2{
+         
+         
+        width: 100%; 
+        height:25vh;
+            }
+            .carousel-section3{
+          
+        width: 100%; 
+        height:25vh;
+                }
+
 	.container-home-annonces-section-barre-recherche-et-annonce { 
           width: 100%; 
           
@@ -233,7 +244,8 @@ only screen and (max-width: 760px),
 	}
 
     .container-card-list{ 
-		display: block; 
+        display: block; 
+        width: 80%;
 	}
 	
     .container-home-annonces-barre-recherche{
@@ -247,7 +259,7 @@ only screen and (max-width: 760px),
     display: flex;
     flex-flow: row wrap;
     padding-left: 15px;
-    width: 100%;
+    width: 80%;
 
     
  
@@ -260,10 +272,7 @@ only screen and (max-width: 760px),
 font-size:20px ;
 
 }
-.container-home-annonces-footer{    display: flex;
-    flex-flow: row wrap; 
-    justify-content: space-evenly;
- }
+
 .container-home-annonces-reseaux{
     display: flex;
     width: 70%;
@@ -281,7 +290,7 @@ font-size:20px ;
     text-align: start;
 }
 .section1-voir-plus-annonce-image{
-  width:90% !important;
+  width:60% !important;
   text-align: start;
 }
 .section2-voir-plus-annonce{
@@ -291,6 +300,7 @@ font-size:20px ;
   }
   .section3-voir-plus-annonce{
     width:70% !important;
+    height: 60%;
     text-align: start;
 
   }

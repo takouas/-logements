@@ -8,7 +8,7 @@ import AjoutAnnonces from './ajoutAnnonces';
 import ModifierAnnonces from './modificationAnnonces';
 import jwt from 'jsonwebtoken';
 import VoirPlusProp from './voirPlus';
-
+import Footer from '../page/footer';
 
 
 var token = localStorage.getItem('token')
@@ -37,70 +37,72 @@ class ListAnnoncesProp extends Component {
     render() {
         const publicite = this.props.stateAnnonces.filter(el => decoded && el.emailUsers === decoded.user.email)
         return (
-            <div style={{ backgroundColor: '#1F2833', paddingTop: '15px', marginTop: '15px' }}>
-                <AjoutAnnonces />
-                <div className='container-card-list' >
+            <div>
+                <div style={{ backgroundColor: '#1F2833', paddingTop: '15px', marginTop: '15px' }}>
+                    <AjoutAnnonces />
+                    <div className='container-card-list' >
 
-                    {
-                        publicite.map(el => <Card
-                            hoverable
-                            style={{ width: 300, marginBottom: 35, backgroundColor: 'whitesmoke' }}
-                            cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 220 }} />}
+                        {
+                            publicite.map(el => <Card
+                                hoverable
+                                style={{ width: 300, marginBottom: 35, backgroundColor: 'whitesmoke' }}
+                                cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 220 }} />}
 
-                        >
+                            >
 
 
-                            <div >
-                                <div className='container-card-list-button-edite-delete'>
-                                    <Button style={{ backgroundColor: 'transparent' }} onClick={this.showModal}>
-                                        <DeleteOutlined className='page-list-annonces-propritaire-button-delete' />
+                                <div >
+                                    <div className='container-card-list-button-edite-delete'>
+                                        <Button style={{ backgroundColor: 'transparent' }} onClick={this.showModal}>
+                                            <DeleteOutlined className='page-list-annonces-propritaire-button-delete' />
+                                        </Button>
+                                        <Modal
+                                            title={false}
+                                            visible={this.state.visible}
+
+                                            closable={false}
+                                            footer={false}
+                                        >
+                                            <p> <ExclamationCircleOutlined /> Êtes-vous sûr de supprimer cette annonce ?</p>
+                                            <div className="container-confirmation-supprimer">
+                                                <Button style={{
+                                                    fontSize: 15,
+                                                    fontFamily: 'Cormorant Infant serif',
+                                                    fontWeight: 'bold',
+                                                    marginRight: '15px'
+                                                }} onClick={this.handleCancel}>
+                                                    Annuler
                                     </Button>
-                                    <Modal
-                                        title={false}
-                                        visible={this.state.visible}
 
-                                        closable={false}
-                                        footer={false}
-                                    >
-                                        <p> <ExclamationCircleOutlined /> Êtes-vous sûr de supprimer cette annonce ?</p>
-                                        <div className="container-confirmation-supprimer">
-                                            <Button style={{
-                                                fontSize: 15,
-                                                fontFamily: 'Cormorant Infant serif',
-                                                fontWeight: 'bold',
-                                                marginRight: '15px'
-                                            }} onClick={this.handleCancel}>
-                                                Annuler
-                                    </Button>
-
-                                            <Button style={{
-                                                backgroundColor: 'red', color: 'white', fontSize: 15,
-                                                fontFamily: 'Cormorant Infant serif',
-                                                fontWeight: 'bold',
-                                            }}
-                                                onClick={() => this.props.deleteAnnonceFromApi(el)}>
-                                                Supprimer
+                                                <Button style={{
+                                                    backgroundColor: 'red', color: 'white', fontSize: 15,
+                                                    fontFamily: 'Cormorant Infant serif',
+                                                    fontWeight: 'bold',
+                                                }}
+                                                    onClick={() => this.props.deleteAnnonceFromApi(el)}>
+                                                    Supprimer
 
                                     </Button>
-                                        </div>
-                                    </Modal>
+                                            </div>
+                                        </Modal>
 
 
-                                    <ModifierAnnonces stateAnnonces={el} />
-                                    <VoirPlusProp el={el} />
+                                        <ModifierAnnonces stateAnnonces={el} />
+                                        <VoirPlusProp el={el} />
+                                    </div>
+
                                 </div>
+                            </Card>)
 
-                            </div>
-                        </Card>)
-
-                    }
+                        }
 
 
-                </div>
+                    </div>
 
-            </div >
-
-
+                </div >
+                <br/>    <br/>    <br/>
+                <Footer />
+            </div>
         )
     }
 }

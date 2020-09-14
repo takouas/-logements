@@ -62,7 +62,7 @@ export default class VoirPlus extends Component {
 
 
 
-                        <div className='section1-voir-plus-annonce' style={{ display: 'flex', textAlign: "center" }}>
+                        <div className='section1-voir-plus-annonce' style={{ display: 'flex' }}>
 
 
 
@@ -71,26 +71,27 @@ export default class VoirPlus extends Component {
                             </div>
 
 
-                            <div className='section2-voir-plus-annonce' style={{ width: "409px", textAlign: "center" }}>
-                                <p>Type de bien : {this.props.el.typeDeBien}</p>
-                                <p>Gouvernorat :{this.props.el.gouvernorat}</p>
-                                <p>Nombre de personne : {this.props.el.nombreDePersonne}</p>
-                                <p>Prix : {this.props.el.prix} DT </p>
-                                <p> Periode : {this.props.el.periode}</p>
+                            <div className='section2-voir-plus-annonce' style={{ width: "409px", paddingLeft: '50px' }}>
+                                <p><span style={{ fontWeight:'bold' }}>Type de bien :</span> {this.props.el.typeDeBien}</p>
+                                <p><span style={{ fontWeight:'bold' }}>Gouvernorat :</span>{this.props.el.gouvernorat}</p>
+                                <p><span style={{ fontWeight:'bold' }}>Nombre de personne :</span> {this.props.el.nombreDePersonne}</p>
+                                <p><span style={{ fontWeight:'bold' }}>Prix :</span> {this.props.el.prix} DT </p>
+                                <p><span style={{ fontWeight:'bold' }}>Periode :</span>  {this.props.el.periode}</p>
+                                <p><span style={{ fontWeight:'bold' }}>Contact par email : </span>{this.props.el.emailAnnonce} <br /> <br/>
+                                    <span style={{ fontWeight:'bold' }}>Contact  par télephone : </span>  {this.props.el.telephoneAnnonce}
+                                </p>
+                                <div style={{ width: "400px", height: '100px', overflow: 'scroll',overflowX: 'hidden'}}>
+
+                                    <p><span style={{ fontWeight:'bold' }}>Description :</span> {this.props.el.description}</p>
+
+
+                                </div>
                             </div>
 
                         </div>
+                        <br />
 
 
-                        <div className='section3-voir-plus-annonce' style={{ width: "930px", textAlign: "center" }}>
-
-                            <p>Description : {this.props.el.description}</p>
-
-                            <p> contact :<br />
-                        par email :  {this.props.el.emailAnnonce} <br />
-                        par télephone :  {this.props.el.telephoneAnnonce}
-                            </p>
-                        </div>
 
 
 

@@ -46,28 +46,28 @@ class Dashboard extends Component {
 
         return (
             <>
-                <section   className='section-dashbord'   >
+                <section className='section-dashbord'   >
 
-                    {user.map(el => <div  style={{
-                        display: 'flex',
-                        flexFlow: 'row wrap',
-                        justifyContent: 'space-around'
+                    {user.map(el => <div style={{
+                        display: 'flex', flexFlow: 'row wrap',
+                        justifyContent: 'space-evenly',
+                        backgroundColor: 'rgb(0,0,0,0.7)',
+                        paddingTop: '50px'
+
+
+
                     }}>
 
-
-
-
+                        <ModifierProfile el={el} />
 
                         <div >
-                            <ModifierProfile el={el} />
-                            <br />
-                        </div>
-
-                        <div>
-                            <h4 className="modifie-profile-pargraphe">Votre profile </h4>
+                            <h2 className="modifie-profile-pargraphe">Votre profile </h2>
                             <p className="modifie-profile-pargraphe">   Nom :{el.nom}</p>
                             <p className="modifie-profile-pargraphe">   Prénom :{el.prenom}</p>
-                            <p className="modifie-profile-pargraphe">   Numéro de téléphone: {el.telephone}</p></div>
+                            <p className="modifie-profile-pargraphe">   Numéro de téléphone: {el.telephone}</p>
+
+                        </div>
+
 
 
 
