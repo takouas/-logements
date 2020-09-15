@@ -43,8 +43,6 @@ export default class Footer extends Component {
                 <div className='gradiation'>
                     <h5> Bien logé dans un bon logement          <img src={house} className="logo-footer" style={{ width: "55px", height: "55px" }} ></img> </h5>
 
-
-
                 </div>
                 <footer className="container-home-annonces-footer">
 

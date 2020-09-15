@@ -187,7 +187,7 @@ class HomeGuest extends Component {
 
 
                         <div >
-                            <div className='container-card-list-guest' style={{marginRight:'30px'}}>
+                            <div className='container-card-list-guest'>
                                 {this.props.stateAnnonces.filter(el => {
                                     if (this.state.searchTypeDeBien) {
                                         return el.typeDeBien.includes(this.state.searchTypeDeBien)
@@ -224,7 +224,7 @@ class HomeGuest extends Component {
                                         <Card
                                             onClick={() => openNotificationWithIcon('info')}
                                             hoverable
-                                            style={{ width: '310px', marginRight: '10px', marginBottom: '15px', borderRadius: '5px' }}
+                                            style={{ width: '300px', marginRight: '7px', marginBottom: '15px', borderRadius: '5px' }}
                                             cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: '200px', borderRadius: '5px 5px 0 0' }} />}
                                         >
 

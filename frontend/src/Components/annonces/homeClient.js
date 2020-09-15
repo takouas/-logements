@@ -44,70 +44,70 @@ class HomeClient extends Component {
                     <br />
 
                     <div className='container-home-annonces-section-barre-recherche-et-annonce'>
-                      
 
 
 
-                            <div className='containere-recherche-guest'>
-                                <h3 >Filtre de recherche :</h3>
-                                <div>
-                                    <Form.Item  >
-                                        <Select name="typeDeBien"
-                                            placeholder="Type de bien" style={{ width: 200 }} onChange={(value) => { this.setState({ searchTypeDeBien: value }) }} allowClear>
-                                            {TypeDeBien.map(el => <Option value={el.value}>{el.contenue}</Option>)})
+
+                        <div className='containere-recherche-guest'>
+                            <h3 >Filtre de recherche :</h3>
+                            <div>
+                                <Form.Item  >
+                                    <Select name="typeDeBien"
+                                        placeholder="Type de bien" style={{ width: 200 }} onChange={(value) => { this.setState({ searchTypeDeBien: value }) }} allowClear>
+                                        {TypeDeBien.map(el => <Option value={el.value}>{el.contenue}</Option>)})
                                 </Select>
-                                    </Form.Item>
+                                </Form.Item>
 
-
-
-                                </div>
-
-                                <div>
-                                    <Form.Item  >
-                                        <Select name="prix " onClick={this.nouveau}
-                                            placeholder="Prix en dinar" onChange={(value) => { this.setState({ searchPrix: value }) }}
-
-                                            style={{ width: 200, }} allowClear>
-                                            {prix.map(el => <Option value={el.value}>{el.contenue}</Option>)}
-                                        </Select>
-                                    </Form.Item>
-                                </div>
-
-
-                                <div>
-                                    <Form.Item  >
-                                        <Select placeholder="Gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }} allowClear>
-                                            {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
-                                        </Select>
-                                    </Form.Item>
-
-                                </div>
-
-                                <div>
-                                    <Form.Item >
-                                        <Select placeholder="Période" style={{ width: 200 }} name="periode" onChange={(value) => { this.setState({ searchPeriode: value }) }} allowClear>
-                                            <Option value="par jour">par jour</Option>
-                                            <Option value="par mois">par mois</Option>
-                                        </Select>
-                                    </Form.Item>
-
-                                </div>
-                                <div >
-                                    <Form.Item
-                                    >
-                                        <Select placeholder="Nombre de personne " style={{ width: 200 }} name="personne" onChange={(value) => { this.setState({ searchNombrePersonne: value }) }} allowClear >
-                                            <Option value="1">  1 personne  </Option>
-                                            <Option value="2"> plus de 2 personnes </Option>
-
-                                            <Option value="plus">  plus de 4 personnes  </Option>
-                                        </Select>
-                                    </Form.Item>
-
-                                </div>
 
 
                             </div>
-                       
+
+                            <div>
+                                <Form.Item  >
+                                    <Select name="prix " onClick={this.nouveau}
+                                        placeholder="Prix en dinar" onChange={(value) => { this.setState({ searchPrix: value }) }}
+
+                                        style={{ width: 200, }} allowClear>
+                                        {prix.map(el => <Option value={el.value}>{el.contenue}</Option>)}
+                                    </Select>
+                                </Form.Item>
+                            </div>
+
+
+                            <div>
+                                <Form.Item  >
+                                    <Select placeholder="Gouvernorat" style={{ width: 200 }} name="gouvernorat" onChange={(value) => { this.setState({ searchGouvernorat: value }) }} allowClear>
+                                        {gouvernorat.map(el => <Option value={el.value}>{el.contenue}</Option>)}
+                                    </Select>
+                                </Form.Item>
+
+                            </div>
+
+                            <div>
+                                <Form.Item >
+                                    <Select placeholder="Période" style={{ width: 200 }} name="periode" onChange={(value) => { this.setState({ searchPeriode: value }) }} allowClear>
+                                        <Option value="par jour">par jour</Option>
+                                        <Option value="par mois">par mois</Option>
+                                    </Select>
+                                </Form.Item>
+
+                            </div>
+                            <div >
+                                <Form.Item
+                                >
+                                    <Select placeholder="Nombre de personne " style={{ width: 200 }} name="personne" onChange={(value) => { this.setState({ searchNombrePersonne: value }) }} allowClear >
+                                        <Option value="1">  1 personne  </Option>
+                                        <Option value="2"> plus de 2 personnes </Option>
+
+                                        <Option value="plus">  plus de 4 personnes  </Option>
+                                    </Select>
+                                </Form.Item>
+
+                            </div>
+
+
+                        </div>
+
 
 
 
@@ -115,7 +115,7 @@ class HomeClient extends Component {
 
                         <div>
 
-                            <div className='container-card-list'>
+                            <div className='container-card-list-client'>
 
 
                                 {this.props.stateAnnonces.filter(el => {
@@ -165,7 +165,7 @@ class HomeClient extends Component {
                                         <Card
 
                                             hoverable
-                                            style={{ width: 320, marginRight: '10px', marginBottom: '15px', borderRadius: '5px' }}
+                                            style={{ width: 280, marginBottom: '15px', borderRadius: '5px' }}
                                             cover={<img alt="maison" src={"http://localhost:5000/" + el.image} style={{ height: 195, borderRadius: '5px 5px 0 0' }} />}
                                         >
 
@@ -196,7 +196,7 @@ class HomeClient extends Component {
                     <br />
 
                 </div>
-                {/* <Footer /> */}
+                <Footer />
             </div >
         )
     }

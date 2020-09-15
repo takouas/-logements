@@ -43,9 +43,15 @@ font-size:15px ;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
+    padding-left: 60px;
  
 
  
+}
+.container-card-list-client{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
 
 .container-home-annonces-reseaux{
@@ -93,6 +99,7 @@ background: rgba(243, 241, 242, 0.604);
   padding: 20px 40px 20px 20px;
 border-right: thin solid rgb(224, 0, 52,0.9);
 height: 100%;
+margin-right:5px;
 
  
 
@@ -260,11 +267,15 @@ only screen and (max-width: 760px),
     flex-flow: row wrap;
     padding-left: 15px;
     width: 80%;
+  
 
     
  
 
 }	
+.container-card-list-guest{
+    width: 90%;    
+}
 .btn-cliquer-ici-guest{
    
 
